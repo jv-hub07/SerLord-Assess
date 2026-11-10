@@ -1,0 +1,2523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SerLord Ministry – ABC Usher Certification Exam | Cathedral of Praise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================
+       THEME & DESIGN SYSTEM
+       Light, neutral background using the colors of the logos:
+       - Cathedral of Praise  -> royal blue / navy
+       - SerLord Ministry     -> navy, red and gold
+       - Hupomone             -> green
+       Section colors:  A = Application (green)
+                        B = Basics (blue)
+                        C = Checkpoint (red)
+       ========================================================== */
+    :root {
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --surface-alt: #f0f3f8;
+      --border: #dde2ea;
+      --border-strong: #c6cddb;
+
+      --text: #1d2433;
+      --muted: #5b6578;
+      --dim: #8a93a5;
+
+      --blue: #1f4ba5;
+      --navy: #14285f;
+      --blue-soft: #e8eefb;
+      --green: #2e9e44;
+      --green-dark: #23793a;
+      --green-soft: #e7f5ea;
+      --red: #b3262f;
+      --red-soft: #fbeaec;
+      --gold: #c9a227;
+      --gold-dark: #9a7b14;
+      --gold-soft: #fbf5df;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+
+      --font-heading: 'Cinzel', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --shadow-card: 0 1px 2px rgba(20, 40, 95, 0.06), 0 6px 18px rgba(20, 40, 95, 0.06);
+      --transition: all 0.2s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 0% 0%, rgba(31, 75, 165, 0.07) 0%, transparent 38%),
+        radial-gradient(circle at 100% 0%, rgba(46, 158, 68, 0.06) 0%, transparent 38%),
+        radial-gradient(circle at 100% 100%, rgba(179, 38, 47, 0.045) 0%, transparent 38%),
+        linear-gradient(180deg, #f9fafc 0%, #f2f4f7 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      flex: 1;
+    }
+
+    h2, h3, h4 { font-family: var(--font-heading); color: var(--navy); letter-spacing: 0.02em; }
+
+    /* Bilingual text helpers */
+    .tl { display: block; font-style: italic; font-weight: 400; color: var(--muted); font-size: 0.88em; margin-top: 2px; }
+    .en { display: block; }
+
+    /* ==========================================================
+       HEADER & BRANDING
+       ========================================================== */
+    .ministry-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 22px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .ministry-header::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -3px;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--blue) 0 35%, var(--red) 35% 60%, var(--gold) 60% 80%, var(--green) 80% 100%);
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .logo { display: block; background: #fff; border: 1px solid var(--border); }
+    .logo-cop { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+    .logo-serlord { height: 92px; width: auto; border-radius: var(--radius-sm); object-fit: contain; }
+    .logo-hupomone { height: 60px; width: auto; border-radius: var(--radius-sm); object-fit: contain; }
+
+    .ministry-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .ministry-title span { color: var(--red); }
+    .ministry-church {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-top: 2px;
+    }
+    .ministry-subtitle { font-size: 1rem; font-weight: 600; color: var(--text); margin-top: 10px; }
+    .ministry-tagline { font-size: 0.85rem; color: var(--muted); font-style: italic; margin-top: 4px; }
+
+    /* ==========================================================
+       CARDS, BUTTONS, FORMS
+       ========================================================== */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 30px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+    .card-accent { border-top: 4px solid var(--blue); }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: var(--transition);
+    }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover:not(:disabled) { background: var(--navy); transform: translateY(-1px); }
+    .btn-outline { background: #fff; color: var(--navy); border-color: var(--border-strong); }
+    .btn-outline:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); background: var(--blue-soft); }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn:focus-visible, .option-item:focus-visible, .nav-dot:focus-visible, .form-control:focus-visible {
+      outline: 3px solid rgba(31, 75, 165, 0.35);
+      outline-offset: 2px;
+    }
+
+    .form-group { margin-bottom: 20px; text-align: left; }
+    .form-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: var(--transition);
+    }
+    .form-control:focus { border-color: var(--blue); }
+
+    /* ==========================================================
+       WELCOME SCREEN
+       ========================================================== */
+    .ministry-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 26px 0; text-align: left; }
+    .pillar-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 14px;
+      border-top: 4px solid var(--blue);
+    }
+    .pillar-card.sec-A { border-top-color: var(--green); }
+    .pillar-card.sec-B { border-top-color: var(--blue); }
+    .pillar-card.sec-C { border-top-color: var(--red); }
+    .pillar-letter { font-family: var(--font-heading); font-size: 1.9rem; font-weight: 800; line-height: 1; }
+    .sec-A .pillar-letter { color: var(--green-dark); }
+    .sec-B .pillar-letter { color: var(--blue); }
+    .sec-C .pillar-letter { color: var(--red); }
+    .pillar-name { font-weight: 700; font-size: 0.95rem; color: var(--navy); margin-top: 6px; }
+    .pillar-desc { font-size: 0.8rem; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+
+    .instructions-box {
+      background: var(--gold-soft);
+      border: 1px solid #ecdca0;
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-bottom: 26px;
+      text-align: left;
+    }
+    .instructions-box h4 { font-size: 0.9rem; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; color: var(--gold-dark); }
+    .instruction-list { list-style: none; }
+    .instruction-list li { font-size: 0.86rem; color: var(--text); padding: 5px 0 5px 20px; position: relative; }
+    .instruction-list li::before { content: ""; position: absolute; left: 2px; top: 13px; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+
+    /* ==========================================================
+       EXAM SCREEN
+       ========================================================== */
+    .exam-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+    .candidate-chip { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 6px 18px 6px 6px; box-shadow: var(--shadow-card); }
+    .candidate-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .progress-wrap { text-align: right; min-width: 170px; }
+    .progress-label { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+    .progress-label span { color: var(--blue); }
+    .progress-bar-container { height: 7px; background: var(--border); border-radius: 99px; overflow: hidden; margin-top: 6px; }
+    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--blue)); border-radius: 99px; transition: width 0.3s ease; }
+
+    .question-navigator { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .nav-dot {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #fff; border: 1.5px solid var(--border-strong); color: var(--muted);
+      font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: var(--transition);
+      border-bottom-width: 4px;
+    }
+    .nav-dot.sec-A { border-bottom-color: var(--green); }
+    .nav-dot.sec-B { border-bottom-color: var(--blue); }
+    .nav-dot.sec-C { border-bottom-color: var(--red); }
+    .nav-dot.answered { background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
+    .nav-dot.current { background: var(--navy); color: #fff; border-color: var(--navy); transform: scale(1.1); }
+
+    .question-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 28px 24px; box-shadow: var(--shadow-card); }
+    .question-card.sec-A { border-top: 4px solid var(--green); }
+    .question-card.sec-B { border-top: 4px solid var(--blue); }
+    .question-card.sec-C { border-top: 4px solid var(--red); }
+
+    .question-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+    .section-chip { display: inline-flex; align-items: center; gap: 8px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; }
+    .section-chip b { font-family: var(--font-heading); font-size: 0.95rem; }
+    .section-chip.sec-A { background: var(--green-soft); color: var(--green-dark); }
+    .section-chip.sec-B { background: var(--blue-soft); color: var(--blue); }
+    .section-chip.sec-C { background: var(--red-soft); color: var(--red); }
+    .question-number { font-size: 0.78rem; font-weight: 600; color: var(--dim); }
+    .question-topic { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; }
+
+    .question-title { font-family: var(--font-body); font-size: 1.1rem; font-weight: 700; color: var(--text); line-height: 1.5; margin-bottom: 20px; letter-spacing: 0; }
+    .question-title .tl { font-size: 0.92rem; font-weight: 500; margin-top: 4px; }
+
+    .options-grid { display: grid; gap: 10px; }
+    .option-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 13px 16px; background: #fff;
+      border: 1.5px solid var(--border); border-radius: var(--radius-md);
+      cursor: pointer; transition: var(--transition); text-align: left;
+      font-family: var(--font-body); width: 100%; color: var(--text);
+    }
+    .option-item:hover { border-color: var(--blue); background: var(--blue-soft); }
+    .option-item.selected { border-color: var(--blue); background: var(--blue-soft); box-shadow: 0 0 0 3px rgba(31, 75, 165, 0.12); }
+    .option-radio { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border-strong); margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+    .option-item.selected .option-radio { border-color: var(--blue); }
+    .option-radio::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--blue); transform: scale(0); transition: var(--transition); }
+    .option-item.selected .option-radio::after { transform: scale(1); }
+    .option-text { font-size: 0.93rem; line-height: 1.45; }
+    .option-text .tl { font-size: 0.84rem; }
+
+    .exam-actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+
+    /* ==========================================================
+       RESULTS
+       ========================================================== */
+    .result-hero { text-align: center; }
+    .result-badge { display: inline-block; padding: 6px 18px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px; }
+    .result-badge.pass { background: var(--green-soft); color: var(--green-dark); }
+    .result-badge.fail { background: var(--red-soft); color: var(--red); }
+    .score-circle { width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fff; border: 7px solid var(--border); box-shadow: var(--shadow-card); }
+    .score-circle.passed { border-color: var(--green); }
+    .score-circle.failed { border-color: var(--red); }
+    .score-number { font-family: var(--font-heading); font-size: 2.8rem; font-weight: 800; color: var(--navy); line-height: 1; }
+    .score-total { font-size: 0.74rem; color: var(--muted); font-weight: 600; margin-top: 4px; }
+    .result-message-title { font-size: 1.5rem; margin-bottom: 10px; }
+    .result-message-body { font-size: 0.95rem; color: var(--muted); max-width: 640px; margin: 0 auto 26px; }
+
+    .section-scores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 640px; margin: 0 auto 28px; }
+    .section-score { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 10px; border-top: 4px solid var(--blue); }
+    .section-score.sec-A { border-top-color: var(--green); }
+    .section-score.sec-B { border-top-color: var(--blue); }
+    .section-score.sec-C { border-top-color: var(--red); }
+    .section-score .ss-name { font-size: 0.78rem; font-weight: 700; color: var(--navy); }
+    .section-score .ss-val { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--text); }
+
+    /* ---------- Certificate ---------- */
+    .certificate-wrapper { max-width: 820px; margin: 0 auto; padding: 14px; background: var(--navy); border-radius: 6px; box-shadow: 0 10px 30px rgba(20, 40, 95, 0.18); }
+    .certificate-inner {
+      position: relative;
+      background: #fffdf8;
+      border: 2px solid var(--gold);
+      padding: 30px 40px 26px;
+      text-align: center;
+      outline: 1px solid var(--gold);
+      outline-offset: -9px;
+    }
+    .cert-logos { display: flex; align-items: center; justify-content: center; gap: 28px; margin-bottom: 12px; }
+    .cert-logo-cop { width: 74px; height: 74px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); background: #fff; }
+    .cert-logo-serlord { height: 108px; width: auto; object-fit: contain; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
+    .cert-logo-hupomone { height: 66px; width: auto; object-fit: contain; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
+    .cert-heading { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); }
+    .cert-title { font-family: var(--font-heading); font-size: 1.9rem; font-weight: 800; color: var(--navy); margin: 6px 0 0; letter-spacing: 0.06em; text-transform: uppercase; }
+    .cert-rule { width: 120px; height: 3px; margin: 12px auto 14px; border-radius: 3px; background: linear-gradient(90deg, var(--blue) 0 35%, var(--red) 35% 60%, var(--gold) 60% 80%, var(--green) 80% 100%); }
+    .cert-presented { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .cert-name { font-family: var(--font-heading); font-size: 2.1rem; font-weight: 700; color: var(--red); margin: 6px 0 12px; border-bottom: 1px solid var(--gold); display: inline-block; padding: 0 28px 4px; max-width: 100%; overflow-wrap: anywhere; }
+    .cert-statement { font-size: 0.9rem; color: var(--text); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+    .cert-statement strong { color: var(--navy); }
+    .cert-abc { display: flex; justify-content: center; gap: 10px; margin: 14px 0 4px; flex-wrap: wrap; }
+    .cert-abc-item { font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; border: 1px solid; }
+    .cert-abc-item.sec-A { color: var(--green-dark); background: var(--green-soft); border-color: #b7dfc0; }
+    .cert-abc-item.sec-B { color: var(--blue); background: var(--blue-soft); border-color: #bccdf0; }
+    .cert-abc-item.sec-C { color: var(--red); background: var(--red-soft); border-color: #eebcc0; }
+    .cert-footer-grid { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .cert-detail { font-size: 0.84rem; font-weight: 600; color: var(--text); flex: 1; }
+    .cert-detail span { display: block; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 2px; }
+    .cert-detail:first-child { text-align: left; }
+    .cert-detail:nth-child(2) { text-align: center; }
+    .cert-detail:last-child { text-align: right; }
+    .cert-status { color: var(--green-dark); }
+    .cert-signatures { display: flex; justify-content: space-around; gap: 30px; margin-top: 22px; }
+    .cert-sign { flex: 1; max-width: 220px; font-size: 0.7rem; color: var(--muted); border-top: 1px solid var(--border-strong); padding-top: 4px; }
+
+    /* ---------- Review ---------- */
+    .review-section { margin-top: 38px; text-align: left; }
+    .review-title { font-size: 1.15rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .review-item { background: #fff; border: 1px solid var(--border); border-left: 5px solid var(--border-strong); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 14px; }
+    .review-item.was-correct { border-left-color: var(--green); }
+    .review-item.was-wrong { border-left-color: var(--red); }
+    .review-q-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+    .review-q-header .tl { font-weight: 500; }
+    .review-answers { font-size: 0.85rem; color: var(--muted); display: grid; gap: 6px; margin-bottom: 10px; }
+    .tag-ok { color: var(--green-dark); font-weight: 600; }
+    .tag-bad { color: var(--red); font-weight: 600; }
+    .review-explanation { font-size: 0.84rem; background: var(--surface-alt); border-radius: var(--radius-sm); padding: 10px 12px; color: var(--text); }
+    .mini-chip { font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 99px; margin-right: 6px; vertical-align: middle; }
+    .mini-chip.sec-A { background: var(--green-soft); color: var(--green-dark); }
+    .mini-chip.sec-B { background: var(--blue-soft); color: var(--blue); }
+    .mini-chip.sec-C { background: var(--red-soft); color: var(--red); }
+
+    /* ---------- Modal ---------- */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(20, 40, 95, 0.35); display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: var(--transition); z-index: 50; }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .modal-card { background: #fff; border-radius: var(--radius-lg); padding: 30px 28px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 20px 50px rgba(20, 40, 95, 0.25); transform: translateY(10px); transition: var(--transition); }
+    .modal-overlay.open .modal-card { transform: translateY(0); }
+    .modal-card h3 { margin-bottom: 10px; }
+    .modal-msg { color: var(--muted); font-size: 0.9rem; margin-bottom: 22px; }
+    .modal-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    #confettiCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 60; }
+
+    .app-footer { text-align: center; padding: 22px 20px 28px; border-top: 1px solid var(--border); background: rgba(255, 255, 255, 0.6); }
+    .app-footer .footer-logos { display: flex; justify-content: center; gap: 12px; margin-bottom: 8px; align-items: center; }
+    .app-footer .footer-logos img { height: 28px; width: auto; border-radius: 4px; }
+    .app-footer .footer-logos img.round { width: 28px; border-radius: 50%; object-fit: cover; }
+    .app-footer p { font-size: 0.78rem; color: var(--muted); }
+
+    /* ==========================================================
+       PRINT (certificate only, landscape)
+       ========================================================== */
+    @page { size: A4 landscape; margin: 8mm; }
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #fff !important; display: block; }
+      .ministry-header, .app-footer, #confettiCanvas, .modal-overlay,
+      .result-hero > *:not(.certificate-wrapper) { display: none !important; }
+      .app-container { padding: 0; max-width: 100%; }
+      .certificate-wrapper { box-shadow: none; margin: 0; max-width: 100%; page-break-inside: avoid; }
+      .=-9i-inner { padding: 18px 30px 16px; }
+      .cert-logo-serlord { height: 90px; }
+      .cert-title { font-size: 1.6rem; }
+      .cert-name { font-size: 1.8rem; }
+    }
+
+    @media (max-width: 640px) {
+      .card { padding: 24px 18px; }
+      .ministry-pillars, .section-scores { grid-template-columns: 1fr; }
+      .exam-header { flex-direction: column; align-items: stretch; }
+      .progress-wrap { text-align: left; }
+      .question-card { padding: 22px 16px; }
+      .certificate-inner { padding: 22px 16px; }
+      .cert-logos { gap: 14px; }
+      .cert-logo-serlord { height: 80px; }
+      .cert-logo-cop { width: 54px; height: 54px; }
+      .cert-logo-hupomone { height: 48px; }
+      .cert-title { font-size: 1.4rem; }
+      .cert-name { font-size: 1.5rem; padding: 0 10px 4px; }
+      .cert-footer-grid { flex-direction: column; align-items: center; }
+      .cert-detail, .cert-detail:first-child, .cert-detail:nth-child(2), .cert-detail:last-child { text-align: center; }
+      .cert-signatures { flex-direction: column; align-items: center; gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confettiCanvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- HEADER -->
+    <header class="ministry-header">
+      <div class="logo-row">
+        <img class="logo logo-cop" src="cop_logo.jpg" alt="Cathedral of Praise logo" />
+        <img class="logo logo-serlord" src="serlord_logo.jpg" alt="SerLord Ministry logo" />
+        <img class="logo logo-hupomone" src="hupomone_logo.jpg" alt="Hupomone logo" />
+      </div>
+      <h1 class="ministry-title">Ser<span>Lord</span> Ministry</h1>
+      <p class="ministry-church">Cathedral of Praise</p>
+      <p class="ministry-subtitle">ABC Usher In-House Certification Exam</p>
+      <p class="ministry-tagline">"Whatever you do, work at it with all your heart, as working for the Lord." (Colossians 3:23)</p>
+    </header>
+
+    <!-- MAIN VIEW CONTAINER -->
+    <main id="appContent"></main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <div class="footer-logos">
+      <img class="round" src="cop_logo.jpg" alt="" />
+      <img src="serlord_logo.jpg" alt="" />
+      <img src="hupomone_logo.jpg" alt="" />
+    </div>
+    <p>SerLord Ministry &bull; A ministry of Cathedral of Praise Church</p>
+    <p>ABC = Application &bull; Basics &bull; Checkpoint</p>
+  </footer>
+
+  <!-- CONFIRMATION MODAL -->
+  <div id="confirmModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <h3 id="modalTitle">Submit Examination?</h3>
+      <p class="tl" style="text-align:center; margin: -4px 0 12px;">Isumite na ba ang pagsusulit?</p>
+      <div id="modalMessage" class="modal-msg"></div>
+      <div class="modal-actions">
+        <button id="cancelModalBtn" type="button" class="btn btn-outline">Review Answers</button>
+        <button id="confirmSubmitBtn" type="button" class="btn btn-primary">Confirm &amp; Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================
+       ABC SECTIONS
+       A = Application | B = Basics | C = Checkpoint
+       ========================================================== */
+    const SECTIONS = {
+      A: { letter: "A", en: "Application", tl: "Pagsasabuhay",
+           descEn: "Apply what you know in real situations during service.",
+           descTl: "Isabuhay ang natutunan sa totoong sitwasyon sa serbisyo." },
+      B: { letter: "B", en: "Basics", tl: "Saligan",
+           descEn: "The foundations: purpose, Scripture, and standards of an usher.",
+           descTl: "Ang pundasyon: layunin, Kasulatan, at pamantayan ng usher." },
+      C: { letter: "C", en: "Checkpoint", tl: "Pagsusuri",
+           descEn: "Readiness checks, accountability, and integrity before, during and after service.",
+           descTl: "Mga pagsusuri sa kahandaan, pananagutan, at integridad bago, habang, at pagkatapos ng serbisyo." }
+    };
+
+    /* ==========================================================
+       QUESTION BANK  (106 questions: A = 35, B = 35, C = 36; English + Tagalog)
+       Format: s = section, c = [topic EN, topic TL], q = [EN, TL],
+               o = 4 options as [EN, TL] (index 0 is always the correct
+               answer; options are shuffled when the exam is generated),
+               e = [explanation EN, explanation TL]
+       ========================================================== */
+    const QUESTION_BANK = [
+
+      /* ---------------- A = APPLICATION ---------------- */
+      { s: "A", c: ["Welcoming Guests", "Pagtanggap sa Bisita"],
+        q: ["A first-time guest enters the sanctuary looking hesitant and confused. What should the usher do?",
+            "May unang beses na bisitang pumasok sa santuwaryo na mukhang nag-aalinlangan at litong-lito. Ano ang dapat gawin ng usher?"],
+        o: [["Greet with a warm smile, offer a bulletin, and personally escort them to a comfortable seat",
+             "Batiin ng may mainit na ngiti, bigyan ng bulletin, at personal siyang ihatid sa komportableng upuan"],
+            ["Point to the back corner from a distance without speaking",
+             "Ituro mula sa malayo ang sulok sa likod nang hindi nagsasalita"],
+            ["Wait until the guest asks for help at the information desk",
+             "Hintayin na humingi ng tulong ang bisita sa information desk"],
+            ["Check first whether the guest is dressed according to the dress code",
+             "Suriin muna kung naaayon sa dress code ang suot ng bisita"]],
+        e: ["Hospitality in action: a warm welcome, a bulletin, and a personal escort help guests feel at home in God's house.",
+            "Mabuting pagtanggap sa gawa: ang mainit na pagbati, bulletin, at personal na paghatid ay nagpaparamdam sa bisita na siya ay nasa tahanan ng Diyos."] },
+
+      { s: "A", c: ["Reverence During Prayer", "Paggalang sa Oras ng Panalangin"],
+        q: ["An attendee arrives while the pastor is leading a solemn prayer. What is the best response?",
+            "May dumating habang nanguna ang pastor sa isang taimtim na panalangin. Ano ang pinakamainam na gawin?"],
+        o: [["Politely hold them at the entrance until the prayer ends, then quietly seat them",
+             "Magalang silang pahintuin sa pasukan hanggang matapos ang panalangin, saka tahimik na paupuin"],
+            ["Rush them down the center aisle to the nearest open seat",
+             "Madaliang samahan sila sa gitnang pasilyo papunta sa pinakamalapit na bakanteng upuan"],
+            ["Announce loudly that someone needs a seat",
+             "Ianunsyo nang malakas na may nangangailangan ng upuan"],
+            ["Ask them to wait outside until the whole service is over",
+             "Papaghintayin sila sa labas hanggang matapos ang buong serbisyo"]],
+        e: ["During solemn moments, ushers protect reverence by holding latecomers at the door and seating them right after.",
+            "Sa mga taimtim na sandali, pinoprotektahan ng mga usher ang paggalang sa pamamagitan ng pagpapahinto sa mga nahuli sa pinto at pagpapaupo sa kanila pagkatapos."] },
+
+      { s: "A", c: ["Families & Infants", "Mga Pamilya at Sanggol"],
+        q: ["A baby is crying loudly in the middle of the sermon. How should the usher help the mother?",
+            "Malakas na umiiyak ang isang sanggol habang nagtuturo ang pastor. Paano matutulungan ng usher ang ina?"],
+        o: [["Softly offer assistance and guide her to the nursery or parents' room",
+             "Mahinahong mag-alok ng tulong at samahan siya sa nursery o parents' room"],
+            ["Reprimand the mother in front of the people around her",
+             "Pagsabihan ang ina sa harap ng mga katabi niya"],
+            ["Take the baby away to soothe it yourself",
+             "Kunin ang sanggol para ikaw mismo ang magpatahan"],
+            ["Ask the mother to leave the church grounds",
+             "Hilingin sa ina na umalis na sa bakuran ng simbahan"]],
+        e: ["Families are served with empathy. Discreetly pointing parents to a comfortable room protects both the family and the worship.",
+            "Pinaglilingkuran ang mga pamilya nang may malasakit. Ang tahimik na pagturo sa komportableng silid ay nagpoprotekta sa pamilya at sa pagsamba."] },
+
+      { s: "A", c: ["Medical Situations", "Mga Sitwasyong Medikal"],
+        q: ["An attendee suddenly feels faint during worship. What is the usher's immediate action?",
+            "Biglang nahilo ang isang dumalo habang may pagsamba. Ano ang agarang gagawin ng usher?"],
+        o: [["One usher alerts the medical team while another keeps the aisle clear and prevents crowding",
+             "Ang isang usher ay tatawag sa medical team habang ang isa pa ay magpapanatiling bukas ang pasilyo at pipigil sa pagkumpol"],
+            ["Shout into the microphone for everyone to stop worshipping",
+             "Sumigaw sa mikropono para ihinto ng lahat ang pagsamba"],
+            ["Record a video so the ministry group can pray",
+             "Mag-video para maipanalangin ng grupo ng ministeryo"],
+            ["Drag the person outside alone without telling anyone",
+             "Mag-isang hilahin palabas ang tao nang walang pinagsasabihan"]],
+        e: ["Calm, coordinated action: call the medical team, protect privacy, and keep paths clear.",
+            "Mahinahon at koordinadong kilos: tawagin ang medical team, protektahan ang privacy, at panatilihing bukas ang daan."] },
+
+      { s: "A", c: ["Electronic Distractions", "Mga Abala mula sa Gadyet"],
+        q: ["An attendee is playing a video with loud sound during the sermon. What is the best approach?",
+            "May dumalong nagpapatugtog ng video na malakas ang tunog habang nagtuturo. Ano ang pinakamainam na paraan?"],
+        o: [["Lean in discreetly and politely whisper a request to mute the phone or use headphones",
+             "Lumapit nang tahimik at mahinahong bumulong ng kahilingang i-mute ang telepono o gumamit ng headphones"],
+            ["Take the phone from their hand and switch it off",
+             "Agawin ang telepono at patayin ito"],
+            ["Shine a flashlight directly at their face",
+             "Ilawan nang diretso ang mukha nila gamit ang flashlight"],
+            ["Call out across the rows so they feel corrected",
+             "Sumigaw mula sa ilang hanay para madama nilang napagsabihan"]],
+        e: ["A courteous whisper respects the person while protecting the focus of worship.",
+            "Ang magalang na bulong ay gumagalang sa tao habang pinoprotektahan ang pokus ng pagsamba."] },
+
+      { s: "A", c: ["Handling Conflict", "Pagharap sa Alitan"],
+        q: ["An attendee insists on sitting in a row reserved for the pastor's guests. How should the usher respond?",
+            "Pilit na umuupo ang isang dumalo sa hanay na nakareserba para sa mga bisita ng pastor. Paano tutugon ang usher?"],
+        o: [["Gently explain the reservation and escort them to an equally good seat",
+             "Dahan-dahang ipaliwanag ang reserbasyon at ihatid sila sa kasing-ganda ring upuan"],
+            ["Argue and threaten to call security right away",
+             "Makipagtalo at agad banggitin na tatawag ng security"],
+            ["Walk away without saying anything",
+             "Umalis nang walang sinasabi"],
+            ["Criticize them so the people nearby can hear",
+             "Punahin sila nang naririnig ng mga nasa paligid"]],
+        e: ["\"A gentle answer turns away wrath\" (Proverbs 15:1). Offer a gracious alternative.",
+            "\"Ang malumanay na sagot ay nagpapaalis ng poot\" (Kawikaan 15:1). Mag-alok ng magandang alternatibo."] },
+
+      { s: "A", c: ["Children in the Sanctuary", "Mga Bata sa Santuwaryo"],
+        q: ["Children are running up and down the main aisle during worship. What should the usher do?",
+            "Nagtatakbuhan ang mga bata sa pangunahing pasilyo habang may pagsamba. Ano ang dapat gawin ng usher?"],
+        o: [["Kindly stop them, find their parents, and ask for help to keep the aisle safe",
+             "Magiliw silang pigilan, hanapin ang mga magulang, at hingin ang tulong nila para manatiling ligtas ang pasilyo"],
+            ["Yell at the children from across the room",
+             "Sigawan ang mga bata mula sa kabilang dulo ng silid"],
+            ["Ignore them as long as nobody complains",
+             "Hayaan sila hangga't walang nagrereklamo"],
+            ["Tell them to go outside and play by themselves",
+             "Sabihing lumabas at maglaro nang mag-isa"]],
+        e: ["Safety and reverence are protected by guiding children back to their parents with patience and love.",
+            "Napoprotektahan ang kaligtasan at paggalang sa pamamagitan ng pagbabalik sa mga bata sa magulang nang may pasensya at pagmamahal."] },
+
+      { s: "A", c: ["Accessibility & Care", "Akses at Pag-aaruga"],
+        q: ["An elderly person or someone in a wheelchair enters the sanctuary. How should the usher accommodate them?",
+            "Pumasok sa santuwaryo ang isang matanda o taong nakawheelchair. Paano sila aalalayan ng usher?"],
+        o: [["Offer help, guide them to accessible seating with a clear exit path, and seat their family beside them",
+             "Mag-alok ng tulong, gabayan sila sa upuang madaling marating na may malinaw na labasan, at paupuin sa tabi nila ang kanilang pamilya"],
+            ["Park the wheelchair in the emergency exit doorway",
+             "Ipuwesto ang wheelchair sa harap ng emergency exit"],
+            ["Suggest they watch the service from the parking lot",
+             "Imungkahing manood na lang sila ng serbisyo mula sa parking lot"],
+            ["Seat them anywhere and attend to other guests first",
+             "Paupuin sila kahit saan at unahin ang ibang bisita"]],
+        e: ["Christ-like care provides dignity, accessibility, and safe pathways.",
+            "Ang pangangalagang tulad ni Kristo ay nagbibigay ng dangal, madaling akses, at ligtas na daanan."] },
+
+      { s: "A", c: ["Emergency Response", "Pagtugon sa Emerhensiya"],
+        q: ["A fire alarm or an earthquake occurs during service. What is the primary role of the ushers?",
+            "May tumunog na fire alarm o lindol habang may serbisyo. Ano ang pangunahing tungkulin ng mga usher?"],
+        o: [["Open the emergency exits wide, guide rows calmly outside, and direct people to the safe assembly point",
+             "Buksan nang todo ang emergency exits, mahinahong gabayan ang bawat hanay palabas, at ituro ang ligtas na lugar ng pagtitipon"],
+            ["Be the first to leave the building to check outside",
+             "Maunang lumabas ng gusali para tingnan ang labas"],
+            ["Keep the doors closed until the sermon ends",
+             "Panatilihing sarado ang mga pinto hanggang matapos ang sermon"],
+            ["Tell everyone to ignore the alarm and keep singing",
+             "Sabihin sa lahat na huwag pansinin ang alarm at ituloy ang pag-awit"]],
+        e: ["Ushers act as safety marshals: calm voice, open exits, no stampede, and clear direction.",
+            "Kumikilos ang mga usher bilang tagapangasiwa ng kaligtasan: mahinahong tinig, bukas na labasan, walang unahan, at malinaw na direksyon."] },
+
+      { s: "A", c: ["Disruptive Individuals", "Mga Nanggugulo"],
+        q: ["A person enters the sanctuary shouting and behaving erratically. What is the correct protocol?",
+            "May taong pumasok sa santuwaryo na sumisigaw at kakaiba ang kilos. Ano ang tamang protokol?"],
+        o: [["The Head Usher and team calmly approach, de-escalate with a gentle tone, and discreetly guide the person to a private room",
+             "Mahinahong lalapit ang Head Usher at ang koponan, magpapakalma gamit ang banayad na tinig, at tahimik na gagabay sa tao sa pribadong silid"],
+            ["Tackle the person in front of the pulpit",
+             "Sunggaban ang tao sa harap ng pulpito"],
+            ["Shout back louder to drown out the voice",
+             "Sumigaw nang mas malakas para matakpan ang boses"],
+            ["Run out of the sanctuary to hide",
+             "Tumakbo palabas ng santuwaryo para magtago"]],
+        e: ["De-escalate with calm dignity, involve several ushers, and move the person to a quiet space for prayer or evaluation.",
+            "Magpakalma nang may dangal, isama ang ilang usher, at ilipat ang tao sa tahimik na lugar para sa panalangin o pagsusuri."] },
+
+      /* ---------------- B = BASICS ---------------- */
+      { s: "B", c: ["Our ABC", "Ang Ating ABC"],
+        q: ["In SerLord Ministry, what does ABC stand for?",
+            "Sa SerLord Ministry, ano ang ibig sabihin ng ABC?"],
+        o: [["A = Application, B = Basics, C = Checkpoint",
+             "A = Application (Pagsasabuhay), B = Basics (Saligan), C = Checkpoint (Pagsusuri)"],
+            ["A = Alertness, B = Benevolence, C = Care",
+             "A = Pagiging Alisto, B = Kabutihang-loob, C = Pag-aaruga"],
+            ["A = Attendance, B = Budget, C = Coordination",
+             "A = Pagdalo, B = Badyet, C = Koordinasyon"],
+            ["A = Altar, B = Bulletin, C = Collection",
+             "A = Altar, B = Bulletin, C = Koleksyon"]],
+        e: ["ABC means Application (putting it into practice), Basics (the foundations), and Checkpoint (checking readiness and accountability).",
+            "Ang ABC ay Application (isabuhay), Basics (pundasyon), at Checkpoint (pagsusuri ng kahandaan at pananagutan)."] },
+
+      { s: "B", c: ["Our Ministry", "Ang Ating Ministeryo"],
+        q: ["SerLord is a ministry of which church?",
+            "Ang SerLord ay isang ministeryo ng aling simbahan?"],
+        o: [["Cathedral of Praise Church",
+             "Cathedral of Praise Church"],
+            ["A government service agency",
+             "Isang ahensya ng gobyerno"],
+            ["A secular volunteer club",
+             "Isang sibilyang samahan ng mga boluntaryo"],
+            ["An independent group with no church connection",
+             "Isang malayang grupo na walang kaugnayan sa simbahan"]],
+        e: ["SerLord is a ministry in Cathedral of Praise Church, serving the Lord and His people.",
+            "Ang SerLord ay isang ministeryo sa Cathedral of Praise Church na naglilingkod sa Panginoon at sa Kanyang bayan."] },
+
+      { s: "B", c: ["Heart of Service", "Puso ng Paglilingkod"],
+        q: ["According to Colossians 3:23, how should we work?",
+            "Ayon sa Colosas 3:23, paano tayo dapat gumawa?"],
+        o: [["With all our heart, as working for the Lord and not for people",
+             "Nang buong puso, na parang para sa Panginoon at hindi para sa tao"],
+            ["Only when someone is watching and can reward us",
+             "Kapag may nakakakita lamang at maaaring magbigay ng gantimpala"],
+            ["Only when we feel like it",
+             "Kapag gusto lang natin"],
+            ["As little as possible to save our energy",
+             "Sa pinakakaunting paraan para makatipid sa lakas"]],
+        e: ["Colossians 3:23 reminds us that our service is ultimately offered to the Lord.",
+            "Ipinaaalala ng Colosas 3:23 na ang ating paglilingkod ay sa huli ay inihahandog sa Panginoon."] },
+
+      { s: "B", c: ["Biblical Calling", "Tawag ng Biblia"],
+        q: ["What does Psalm 84:10 teach about serving as a doorkeeper in God's house?",
+            "Ano ang itinuturo ng Awit 84:10 tungkol sa paglilingkod bilang bantay-pinto sa bahay ng Diyos?"],
+        o: [["It is a humble, joyful privilege, better than dwelling in comfort elsewhere",
+             "Isa itong mapagpakumbaba at masayang pribilehiyo, mas mabuti kaysa tumira sa karangyaan sa ibang lugar"],
+            ["It is a stepping stone to fame in the church",
+             "Isa itong hakbang tungo sa kasikatan sa simbahan"],
+            ["It is a burden done only when forced",
+             "Isa itong pasanin na ginagawa lamang kapag napilitan"],
+            ["It is a position to judge who is worthy to enter",
+             "Isa itong posisyon para humusga kung sino ang karapat-dapat pumasok"]],
+        e: ["Psalm 84:10: \"I would rather be a doorkeeper in the house of my God than dwell in the tents of wickedness.\"",
+            "Awit 84:10: \"Mas gugustuhin ko pang maging bantay-pinto sa bahay ng aking Diyos kaysa tumahan sa mga tolda ng kasamaan.\""] },
+
+      { s: "B", c: ["Order in Worship", "Kaayusan sa Pagsamba"],
+        q: ["Which verse guides ushers to keep worship decent and in order?",
+            "Aling talata ang gabay ng mga usher na panatilihing angkop at may kaayusan ang pagsamba?"],
+        o: [["1 Corinthians 14:40",
+             "1 Corinto 14:40"],
+            ["Romans 12:2",
+             "Roma 12:2"],
+            ["Philippians 4:13",
+             "Filipos 4:13"],
+            ["John 3:16",
+             "Juan 3:16"]],
+        e: ["1 Corinthians 14:40: \"Everything should be done in a fitting and orderly way.\"",
+            "1 Corinto 14:40: \"Gawin ang lahat nang may kaangkupan at kaayusan.\""] },
+
+      { s: "B", c: ["Meaning of Hupomone", "Kahulugan ng Hupomone"],
+        q: ["The Greek word \"hupomone\" in the New Testament refers to:",
+            "Ang salitang Griyego na \"hupomone\" sa Bagong Tipan ay tumutukoy sa:"],
+        o: [["Steadfast endurance and perseverance under pressure",
+             "Matatag na pagtitiis at pagpupursigi sa gitna ng hirap"],
+            ["Sudden wealth and success",
+             "Biglaang kayamanan at tagumpay"],
+            ["Temporary excitement in worship",
+             "Pansamantalang sigla sa pagsamba"],
+            ["Silence during the sermon",
+             "Katahimikan sa panahon ng sermon"]],
+        e: ["Hupomone (as in James 1:3-4) means patient, steadfast endurance, the spirit of faithful servants who keep going.",
+            "Ang hupomone (tulad sa Santiago 1:3-4) ay nangangahulugang matiyagang pagtitiis, ang diwa ng tapat na lingkod na hindi sumusuko."] },
+
+      { s: "B", c: ["Purpose of an Usher", "Layunin ng Usher"],
+        q: ["What is the highest purpose of a SerLord usher?",
+            "Ano ang pinakamataas na layunin ng isang usher ng SerLord?"],
+        o: [["To prepare an atmosphere of love, order, and reverence where people can encounter God without distraction",
+             "Ihanda ang kapaligirang puno ng pag-ibig, kaayusan, at paggalang kung saan makakatagpo ng Diyos ang mga tao nang walang sagabal"],
+            ["To enforce rules and look authoritative in uniform",
+             "Ipatupad ang mga patakaran at magmukhang may awtoridad sa uniporme"],
+            ["To be seen on the church video broadcast",
+             "Makita sa video broadcast ng simbahan"],
+            ["To decide who gets the best seats",
+             "Magpasya kung sino ang makakakuha ng pinakamagandang upuan"]],
+        e: ["An usher is a servant-leader who helps people meet God without hindrance.",
+            "Ang usher ay lingkod-lider na tumutulong sa mga tao na makatagpo ang Diyos nang walang hadlang."] },
+
+      { s: "B", c: ["Seating Basics", "Saligang Pagpapaupo"],
+        q: ["What is the basic seating practice as the sanctuary fills up?",
+            "Ano ang pangunahing gawi sa pagpapaupo habang napupuno ang santuwaryo?"],
+        o: [["Fill from the front to the back, starting from the center and moving outward",
+             "Punuin mula sa harap papunta sa likod, simula sa gitna palabas"],
+            ["Let people sit anywhere and leave the front rows empty",
+             "Hayaang umupo kahit saan at iwang bakante ang mga unang hanay"],
+            ["Fill the back rows first",
+             "Punuin muna ang mga hanay sa likod"],
+            ["Reserve the best seats for friends and relatives",
+             "Ireserba ang pinakamagagandang upuan para sa mga kaibigan at kamag-anak"]],
+        e: ["Filling front and center first reduces gaps and distractions as latecomers arrive.",
+            "Ang pagpuno muna sa harap at gitna ay nakababawas ng puwang at abala habang dumarating ang mga nahuli."] },
+
+      { s: "B", c: ["Personal Presentation", "Personal na Anyo"],
+        q: ["Which reflects the standard for an usher's personal presentation?",
+            "Alin ang sumasalamin sa pamantayan ng personal na anyo ng usher?"],
+        o: [["Neat, modest attire, clean hands, fresh breath, and a properly worn name badge",
+             "Maayos at disenteng kasuotan, malinis na kamay, sariwang hininga, at wastong suot na name badge"],
+            ["Eye-catching accessories and an untucked shirt",
+             "Nakakaagaw-pansing aksesorya at hindi nakasuksok na damit"],
+            ["Wearing earphones while on duty",
+             "Pagsusuot ng earphones habang naka-duty"],
+            ["Chewing gum or eating while standing at the door",
+             "Pagnguya ng gum o pagkain habang nakatayo sa pinto"]],
+        e: ["Ushers reflect the dignity of God's house through modesty, cleanliness, and clear identification.",
+            "Ipinakikita ng mga usher ang dangal ng bahay ng Diyos sa pamamagitan ng kahinhinan, kalinisan, at malinaw na pagkakakilanlan."] },
+
+      { s: "B", c: ["Punctuality", "Pagiging Maagap"],
+        q: ["How early should an usher arrive before the service?",
+            "Gaano kaaga dapat dumating ang usher bago ang serbisyo?"],
+        o: [["30–45 minutes early for prayer, briefing, and area assignment",
+             "30–45 minuto nang mas maaga para sa panalangin, briefing, at pagtatalaga ng lugar"],
+            ["Exactly when the worship music starts",
+             "Eksakto sa pagsisimula ng musika ng pagsamba"],
+            ["Just before the offering",
+             "Bago lamang ang handog"],
+            ["Any time, as long as the uniform is worn",
+             "Anumang oras, basta suot ang uniporme"]],
+        e: ["Punctuality and spiritual preparation are foundational: pray, get briefed, and take your post.",
+            "Pundasyon ang pagiging maagap at espirituwal na paghahanda: manalangin, makinig sa briefing, at pumuwesto."] },
+
+      /* ---------------- C = CHECKPOINT ---------------- */
+      { s: "C", c: ["Pre-Service Checklist", "Listahan Bago ang Serbisyo"],
+        q: ["Before attendees enter, which items belong on the usher's pre-service checkpoint?",
+            "Bago pumasok ang mga dumalo, alin ang kasama sa pre-service checkpoint ng usher?"],
+        o: [["Clean seats, comfortable temperature, hazard-free aisles, and stocked bulletins and envelopes",
+             "Malinis na upuan, komportableng temperatura, ligtas na pasilyo, at sapat na bulletin at sobre"],
+            ["Lights off and emergency exits locked",
+             "Patay ang ilaw at nakakandado ang emergency exits"],
+            ["Personal items placed on seats to reserve them",
+             "Mga gamit ng sarili na nakalagay sa upuan bilang reserba"],
+            ["Only the offering baskets; everything else can wait",
+             "Mga basket ng handog lamang; puwedeng ipagpaliban ang iba"]],
+        e: ["A clean, safe, and comfortable sanctuary is verified before guests arrive.",
+            "Tinitiyak na malinis, ligtas, at komportable ang santuwaryo bago dumating ang mga bisita."] },
+
+      { s: "C", c: ["Integrity with Offerings", "Integridad sa Handog"],
+        q: ["What is the integrity checkpoint when handling tithes and offerings?",
+            "Ano ang checkpoint ng integridad sa paghawak ng ikapu at handog?"],
+        o: [["Always handle in pairs (two ushers) and bring directly to the secured counting room",
+             "Laging magkapares (dalawang usher) at diretsong dalhin sa ligtas na counting room"],
+            ["One usher carries the offering alone to their car for safekeeping",
+             "Isang usher ang magdadala ng handog nang mag-isa sa kanyang sasakyan para ingatan"],
+            ["Leave the bags on the back table during preaching",
+             "Iwan ang mga bag sa mesa sa likod habang nagtuturo"],
+            ["Count the money informally in the foyer",
+             "Bilangin ang pera nang impormal sa foyer"]],
+        e: ["Dual custody protects the integrity of the ministry and the people who give.",
+            "Pinoprotektahan ng dalawahang pangangalaga ang integridad ng ministeryo at ng mga nagbibigay."] },
+
+      { s: "C", c: ["Attendance Headcount", "Bilang ng Dumalo"],
+        q: ["When is the standard time for the official sanctuary headcount?",
+            "Kailan ang karaniwang oras ng opisyal na bilang ng dumalo sa santuwaryo?"],
+        o: [["Midway through the sermon, when attendance has settled",
+             "Sa kalagitnaan ng sermon, kapag naayos na ang pag-upo ng mga dumalo"],
+            ["During the pre-service countdown before most arrive",
+             "Sa pre-service countdown bago dumating ang karamihan"],
+            ["After the benediction as people leave",
+             "Pagkatapos ng basbas habang paalis ang mga tao"],
+            ["Only when someone asks for the number",
+             "Kapag may nagtanong lamang ng bilang"]],
+        e: ["Counting at mid-sermon gives the most accurate number because people are seated and settled.",
+            "Ang pagbibilang sa kalagitnaan ng sermon ang pinakatumpak dahil nakaupo at nakaayos na ang mga tao."] },
+
+      { s: "C", c: ["Post-Service Checkpoint", "Pagsusuri Pagkatapos ng Serbisyo"],
+        q: ["What is the checkpoint after the congregation leaves the sanctuary?",
+            "Ano ang checkpoint pagkatapos umalis ng kongregasyon sa santuwaryo?"],
+        o: [["Sweep row by row for lost items and trash, turn found items in to the information desk, and reset the sanctuary",
+             "Suriin ang bawat hanay para sa naiwang gamit at basura, ipasa sa information desk ang mga nakita, at ibalik sa ayos ang santuwaryo"],
+            ["Leave right away since the service is over",
+             "Umalis agad dahil tapos na ang serbisyo"],
+            ["Take found items home to keep them safe",
+             "Iuwi ang mga napulot na gamit para maging ligtas"],
+            ["Turn off the lights while people are still fellowshipping",
+             "Patayin ang ilaw habang nagsasama-sama pa ang mga tao"]],
+        e: ["Post-service care means securing lost items and resetting the sanctuary for the next service.",
+            "Ang pag-aaruga pagkatapos ng serbisyo ay pag-iingat sa mga naiwang gamit at pag-aayos ng santuwaryo para sa susunod na serbisyo."] },
+
+      { s: "C", c: ["Accountability", "Pananagutan"],
+        q: ["If a scheduled usher cannot serve because of an emergency, what is the checkpoint?",
+            "Kung hindi makapaglingkod ang nakaiskedyul na usher dahil sa emerhensiya, ano ang checkpoint?"],
+        o: [["Inform the Head Usher as early as possible (ideally 24–48 hours ahead) and help find an approved substitute",
+             "Ipaalam agad sa Head Usher (mas mainam 24–48 oras bago) at tumulong humanap ng aprubadong kapalit"],
+            ["Simply skip the schedule and switch off the phone",
+             "Hindi na lang pumunta at patayin ang telepono"],
+            ["Send an untrained friend without telling anyone",
+             "Magpadala ng kaibigang walang training nang walang pasabi"],
+            ["Post a complaint in the ministry group chat",
+             "Magreklamo sa group chat ng ministeryo"]],
+        e: ["Stewardship means communicating early so coverage can be arranged smoothly.",
+            "Ang pagiging katiwala ay maagang pagpapaalam upang maayos na mapunan ang puwesto."] },
+
+      { s: "C", c: ["Emergency Readiness", "Kahandaan sa Emerhensiya"],
+        q: ["Which emergency-readiness checkpoint should every usher confirm before service?",
+            "Aling checkpoint sa kahandaan sa emerhensiya ang dapat tiyakin ng bawat usher bago ang serbisyo?"],
+        o: [["Know the nearest exits and the assembly point, and make sure exit paths are clear and unlocked",
+             "Alamin ang pinakamalapit na labasan at ang assembly point, at tiyaking malinaw at hindi nakakandado ang daan palabas"],
+            ["Keep exit doors locked to prevent disruptions",
+             "Panatilihing nakakandado ang mga labasan para walang istorbo"],
+            ["Store chairs and boxes near the exits to save space",
+             "Itambak ang mga upuan at kahon malapit sa labasan para makatipid sa espasyo"],
+            ["Leave emergency planning to the pastor only",
+             "Ipaubaya ang emergency plan sa pastor lamang"]],
+        e: ["Clear, unlocked exits and a known assembly point save lives in an emergency.",
+            "Ang malinaw at bukas na labasan at kilalang assembly point ay nagliligtas ng buhay sa oras ng emerhensiya."] },
+
+      { s: "C", c: ["Holy Communion", "Banal na Hapunan"],
+        q: ["During Holy Communion, what is the key checkpoint for the ushering team?",
+            "Sa Banal na Hapunan, ano ang pangunahing checkpoint ng pangkat ng mga usher?"],
+        o: [["Ensure the distribution is orderly, systematic, and reverent so every believer is served",
+             "Tiyaking maayos, sistematiko, at may paggalang ang pamamahagi upang mapaglingkuran ang bawat mananampalataya"],
+            ["Distribute as fast as possible, like a drive-thru",
+             "Mamahagi nang pinakamabilis, parang drive-thru"],
+            ["Comment on how much each person takes",
+             "Magkomento kung gaano karami ang kinukuha ng bawat tao"],
+            ["Finish the leftover elements before they reach the back rows",
+             "Ubusin ang natirang sangkap bago umabot sa likurang mga hanay"]],
+        e: ["The Lord's table calls for solemnity, coordination, and row-by-row service.",
+            "Ang hapag ng Panginoon ay nangangailangan ng kataimtiman, koordinasyon, at paglilingkod hanay-hanay."] },
+
+      { s: "C", c: ["Door Management", "Pamamahala ng Pinto"],
+        q: ["Why should ushers never leave their assigned doors unattended during service?",
+            "Bakit hindi dapat iwan ng mga usher ang itinalagang pinto habang may serbisyo?"],
+        o: [["To keep the sanctuary secure, assist latecomers right away, and avoid disruptive entrances",
+             "Para manatiling ligtas ang santuwaryo, agad matulungan ang mga nahuli, at maiwasan ang nakakaistorbong pagpasok"],
+            ["To stop anyone from using the restroom",
+             "Para pigilan ang sinuman na gumamit ng banyo"],
+            ["To make sure no one leaves before giving tithes",
+             "Para matiyak na walang aalis bago magbigay ng ikapu"],
+            ["Because ushers are never allowed to sit",
+             "Dahil hindi pinapayagang umupo kailanman ang mga usher"]],
+        e: ["Doors are the gate of hospitality and security; an unattended door creates blind spots and noise.",
+            "Ang pinto ay tarangkahan ng mabuting pagtanggap at seguridad; ang pintong walang bantay ay nagdudulot ng panganib at ingay."] },
+
+      { s: "C", c: ["Heart Check", "Pagsusuri ng Puso"],
+        q: ["Psalm 139:23-24 says, \"Search me, O God, and know my heart.\" How does this apply as a personal checkpoint?",
+            "Sinasabi ng Awit 139:23-24, \"Siyasatin mo ako, O Diyos, at kilalanin ang aking puso.\" Paano ito naaangkop bilang personal na checkpoint?"],
+        o: [["Examine my heart, attitude, and relationships through prayer before I serve",
+             "Suriin ang aking puso, saloobin, at mga relasyon sa pamamagitan ng panalangin bago maglingkod"],
+            ["Check only my uniform and ignore my attitude",
+             "Uniporme ko lang ang susuriin at pababayaan ang saloobin"],
+            ["Check what other people are doing wrong",
+             "Suriin ang mga pagkakamali ng iba"],
+            ["Skip prayer when I am running late",
+             "Huwag nang manalangin kapag nahuhuli ako"]],
+        e: ["A faithful servant checks the heart first. Pray before serving so that service flows from a right spirit.",
+            "Ang tapat na lingkod ay unang sinusuri ang puso. Manalangin bago maglingkod upang ang paglilingkod ay mula sa tamang espiritu."] },
+
+      { s: "C", c: ["Team Debrief", "Pagbabalik-tanaw ng Koponan"],
+        q: ["After the service, what is the debrief checkpoint for the ushering team?",
+            "Pagkatapos ng serbisyo, ano ang debrief checkpoint ng pangkat ng mga usher?"],
+        o: [["Gather for a short prayer and debrief, report incidents or needs to the Head Usher, and note areas to improve",
+             "Magtipon para sa maikling panalangin at debrief, iulat sa Head Usher ang mga pangyayari o pangangailangan, at itala ang dapat pagbutihin"],
+            ["Leave quietly with no report to avoid extra work",
+             "Umalis nang tahimik at walang ulat para walang dagdag na trabaho"],
+            ["Discuss incidents on social media to get advice",
+             "Talakayin ang mga pangyayari sa social media para humingi ng payo"],
+            ["Wait until next month to mention any problem",
+             "Hintayin ang susunod na buwan bago banggitin ang anumang problema"]],
+        e: ["Debriefing builds accountability and helps the team grow in excellence.",
+            "Ang debrief ay nagpapatatag ng pananagutan at tumutulong sa koponan na lumago sa kahusayan."] }
+    ];
+    /* ==========================================================
+       EXPANDED QUESTION BANK (+76 questions: A = 25, B = 25, C = 26)
+       Q(section, [topic EN, TL], [question EN, TL],
+         [[correct EN, TL], [wrong EN, TL] x3], [explanation EN, TL])
+       The first option is always the correct one; options are
+       shuffled when an exam is generated.
+       ========================================================== */
+    const Q = (s, c, q, o, e) => ({ s, c, q, o, e });
+
+    QUESTION_BANK.push(
+
+      /* ---------------- A = APPLICATION (25 more) ---------------- */
+      Q("A", ["Seating Families", "Pagpapaupo sa mga Pamilya"],
+        ["A family of six arrives and the only free seats are scattered. What should the usher do?",
+         "Dumating ang pamilyang may anim na miyembro at nagkakahiwa-hiwalay ang bakanteng upuan. Ano ang dapat gawin ng usher?"],
+        [["Quietly look for a row with enough seats together and guide the whole family there",
+          "Tahimik na maghanap ng hanay na may sapat na magkakatabing upuan at ihatid doon ang buong pamilya"],
+         ["Seat them separately because any open seat will do",
+          "Paupuin silang magkakahiwalay dahil kahit anong bakanteng upuan ay puwede"],
+         ["Ask other families to leave so they can sit together",
+          "Hilingin sa ibang pamilya na umalis para makaupo silang magkakasama"],
+         ["Tell them to wait until the next service",
+          "Sabihin sa kanilang maghintay na lang sa susunod na serbisyo"]],
+        ["Keeping families together shows care and keeps the worship calm.",
+         "Ang pagpapanatiling magkakasama ng pamilya ay tanda ng malasakit at nagpapanatili ng katahimikan sa pagsamba."]),
+
+      Q("A", ["Offering Basket", "Pagpasa ng Basket ng Handog"],
+        ["How should an usher pass the offering basket along a row?",
+         "Paano dapat ipasa ng usher ang basket ng handog sa isang hanay?"],
+        [["Hand it gently to the person at the aisle end and follow its smooth passage to the other side",
+          "Iabot nang magalang sa nasa dulo ng pasilyo at sundan ang maayos na pagpasa nito hanggang sa kabilang dulo"],
+         ["Toss it across people's laps to save time",
+          "Ihagis ito sa mga kandungan ng tao para makatipid sa oras"],
+         ["Look into each envelope to see the amount",
+          "Silipin ang laman ng bawat sobre para makita ang halaga"],
+         ["Tap your watch to hurry people along",
+          "Kalabitin ang relo para madaliin ang mga tao"]],
+        ["Giving is private and worshipful; pass the basket with respect and never look at what people give.",
+         "Pribado at pagsamba ang pagbibigay; ipasa ang basket nang may paggalang at huwag tingnan ang ibinibigay ng tao."]),
+
+      Q("A", ["Altar Call", "Panawagan sa Altar"],
+        ["What is the usher's role during the altar call or response time?",
+         "Ano ang tungkulin ng usher sa oras ng panawagan sa altar o tugon?"],
+        [["Keep paths clear, stand respectfully at the sides, and have tissues ready for those who come forward",
+          "Panatilihing bukas ang daan, tumayo nang magalang sa gilid, at maghanda ng tisyu para sa mga lalapit"],
+         ["Block the aisle so only a few can come forward",
+          "Harangan ang pasilyo para kakaunti lang ang makalapit"],
+         ["Leave the sanctuary to rest until it ends",
+          "Lumabas ng santuwaryo at magpahinga hanggang matapos"],
+         ["Take pictures of those who respond",
+          "Kunan ng larawan ang mga tumutugon"]],
+        ["Ushers support the prayer team quietly and protect the privacy and dignity of those who respond.",
+         "Tahimik na sinusuportahan ng mga usher ang prayer team at pinoprotektahan ang pribasya at dangal ng mga tumutugon."]),
+
+      Q("A", ["Seating the Elderly", "Pagpapaupo sa mga Nakatatanda"],
+        ["An elderly member walks slowly and struggles with the steps. What should the usher do?",
+         "Mabagal maglakad ang isang nakatatandang miyembro at nahihirapan sa hagdan. Ano ang dapat gawin ng usher?"],
+        [["Offer an arm or assistance, walk at their pace, and seat them in an easy-to-reach row",
+          "Mag-alok ng braso o tulong, sabayan ang bilis ng lakad niya, at paupuin sa hanay na madaling marating"],
+         ["Let them manage alone so you do not look intrusive",
+          "Hayaan siyang mag-isa para hindi magmukhang mapanghimasok"],
+         ["Seat them at the top row, farthest from the door",
+          "Paupuin sa pinakamataas na hanay, pinakamalayo sa pinto"],
+         ["Hurry them so others are not delayed",
+          "Madaliin siya para hindi maantala ang iba"]],
+        ["\"Honor your father and mother\" extends to caring for older members with patience.",
+         "Ang paggalang sa magulang ay umaabot sa pag-aalaga nang may pasensya sa mga nakatatandang miyembro."]),
+
+      Q("A", ["Leaving During Service", "Paglabas Habang May Serbisyo"],
+        ["Someone needs to leave the sanctuary during the sermon. How should the usher help?",
+         "May kailangang lumabas ng santuwaryo habang nagtuturo. Paano makakatulong ang usher?"],
+        [["Open the door quietly, guide them out, and be ready to seat them again without disturbing others",
+          "Tahimik na buksan ang pinto, gabayan palabas, at maghandang muling paupuin sila nang hindi nakakaistorbo"],
+         ["Ask them loudly to explain why they are leaving",
+          "Tanungin nang malakas kung bakit sila aalis"],
+         ["Refuse and tell them to wait for the benediction",
+          "Tumanggi at sabihing maghintay hanggang sa basbas"],
+         ["Slam the door so they know it is not allowed",
+          "Isara nang malakas ang pinto para malamang bawal ito"]],
+        ["Quiet movement and calm helpfulness protect the focus of the room.",
+         "Ang tahimik na kilos at mahinahong pagtulong ay nagpoprotekta sa pokus ng lahat."]),
+
+      Q("A", ["Giving Directions", "Pagbibigay ng Direksyon"],
+        ["A visitor asks where the restroom, nursery, or children's class is. What is the best response?",
+         "Nagtanong ang isang bisita kung nasaan ang banyo, nursery, o klase ng mga bata. Ano ang pinakamainam na tugon?"],
+        [["Give clear directions with a smile and, if possible, walk with them to the place",
+          "Magbigay ng malinaw na direksyon nang may ngiti at, kung maaari, samahan siya hanggang doon"],
+         ["Say you are not sure and ignore the question",
+          "Sabihing hindi ka sigurado at huwag nang pansinin ang tanong"],
+         ["Point vaguely and look away",
+          "Magturo nang malabo at tumingin sa iba"],
+         ["Tell them to read the signs themselves",
+          "Sabihin sa kanilang basahin na lang ang mga karatula"]],
+        ["Ushers know the building and help guests feel welcome and unhurried.",
+         "Kabisado ng mga usher ang gusali at tinutulungan ang bisita na maging panatag at hindi nagmamadali."]),
+
+      Q("A", ["Someone Sleeping", "May Natutulog"],
+        ["An attendee appears to be dozing during the sermon. What is a Christ-like response?",
+         "Mukhang inaantok ang isang dumalo habang nagtuturo. Ano ang tugon na tulad ni Kristo?"],
+        [["Do not embarrass them; discreetly check if they are unwell and offer water if needed",
+          "Huwag silang ipahiya; tahimik na alamin kung may sakit at mag-alok ng tubig kung kailangan"],
+         ["Loudly wake them in front of everyone",
+          "Gisingin sila nang malakas sa harap ng lahat"],
+         ["Take a photo to share in the group chat",
+          "Kunan ng larawan para ibahagi sa group chat"],
+         ["Tell the pastor to call them out",
+          "Sabihin sa pastor na pangalanan sila sa harap ng iba"]],
+        ["Dignity first: care quietly without shaming the person.",
+         "Dangal muna: mag-alaga nang tahimik at hindi nanghihiya."]),
+
+      Q("A", ["Camera Flash", "Flash ng Kamera"],
+        ["Someone uses a camera with bright flash during worship. What should the usher do?",
+         "May gumagamit ng kamerang may matinding flash habang may pagsamba. Ano ang dapat gawin ng usher?"],
+        [["Kindly whisper a reminder to turn off the flash and explain the media team is covering the service",
+          "Magalang na bumulong na patayin ang flash at ipaliwanag na may media team na kumukuha ng serbisyo"],
+         ["Grab the camera and keep it",
+          "Agawin ang kamera at itago"],
+         ["Ignore it because everyone will get used to it",
+          "Hayaan dahil masasanay din ang lahat"],
+         ["Shout across the room to stop",
+          "Sumigaw mula sa malayo para tumigil"]],
+        ["A gentle, private reminder keeps worship undisturbed and keeps the relationship warm.",
+         "Ang mahinahon at pribadong paalala ay nagpapanatili ng katahimikan ng pagsamba at ng magandang ugnayan."]),
+
+      Q("A", ["Sound Complaint", "Reklamo sa Tunog"],
+        ["A member says the sound is too loud or too soft. How should the usher respond?",
+         "Sinabi ng isang miyembro na masyadong malakas o mahina ang tunog. Paano dapat tumugon ang usher?"],
+        [["Listen kindly, thank them, and quietly pass the concern to the sound or technical team",
+          "Makinig nang may kabaitan, magpasalamat, at tahimik na ipaabot ang hinaing sa sound o technical team"],
+         ["Argue that the sound is always perfect",
+          "Makipagtalo na laging perpekto ang tunog"],
+         ["Walk to the console and change the settings yourself",
+          "Pumunta sa console at ikaw mismo ang magbago ng settings"],
+         ["Tell them to sit somewhere else forever",
+          "Sabihin sa kanilang lumipat na lang ng upuan magpakailanman"]],
+        ["Ushers listen and route feedback to the right team instead of acting outside their role.",
+         "Nakikinig ang mga usher at ipinapasa ang puna sa tamang pangkat sa halip na kumilos lampas sa kanilang tungkulin."]),
+
+      Q("A", ["Lost Child", "Batang Nawawala"],
+        ["A child is found wandering and cannot find their parents. What should the usher do?",
+         "May batang natagpuang naglalakad at hindi makita ang magulang. Ano ang dapat gawin ng usher?"],
+        [["Stay calm, keep the child with you in a visible place, notify the Head Usher and children's ministry, and reunite them with the verified parent",
+          "Manatiling kalmado, samahan ang bata sa lugar na nakikita, ipaalam sa Head Usher at children's ministry, at ibalik sa nakumpirmang magulang"],
+         ["Let the child keep wandering until the parents show up",
+          "Hayaang maglakad ang bata hanggang dumating ang magulang"],
+         ["Take the child outside to look for the parents alone",
+          "Dalhin ang bata sa labas at mag-isang hanapin ang magulang"],
+         ["Give the child to the first adult who claims them",
+          "Ibigay ang bata sa unang adultong magsabing kanya ito"]],
+        ["Child safety comes first: keep the child visible, involve leaders, and verify the parent.",
+         "Una ang kaligtasan ng bata: panatilihing nakikita, isama ang mga lider, at tiyakin kung sino ang magulang."]),
+
+      Q("A", ["Prayer Requests", "Kahilingan sa Panalangin"],
+        ["A member quietly asks the usher for prayer. What is the best response?",
+         "Tahimik na humiling ng panalangin ang isang miyembro sa usher. Ano ang pinakamainam na tugon?"],
+        [["Listen with compassion, pray briefly if appropriate, and connect them to the prayer or pastoral team",
+          "Makinig nang may habag, manalangin nang maikli kung angkop, at ikonekta sa prayer o pastoral team"],
+         ["Tell them ushers do not care about prayer",
+          "Sabihing walang pakialam sa panalangin ang mga usher"],
+         ["Share their request with others as gossip",
+          "Ikalat ang kahilingan nila bilang tsismis"],
+         ["Give a long sermon right at the door",
+          "Magturo nang mahaba sa mismong pinto"]],
+        ["Ushers care for people and refer them to trained pastoral care while keeping the request confidential.",
+         "Nagmamalasakit ang mga usher at inire-refer ang tao sa sanay na pastoral care habang pinananatiling lihim ang hiling."]),
+
+      Q("A", ["After-Service Crowd", "Siksikan Pagkatapos ng Serbisyo"],
+        ["The crowd is thick at the doors after service. What should ushers do?",
+         "Siksikan ang tao sa mga pinto pagkatapos ng serbisyo. Ano ang dapat gawin ng mga usher?"],
+        [["Stand at key points, politely guide the flow, and keep exits and walkways clear",
+          "Tumayo sa mahahalagang bahagi, magalang na gabayan ang daloy, at panatilihing bukas ang mga labasan at daanan"],
+         ["Lock some doors so fewer people can leave",
+          "Ikandado ang ilang pinto para kaunti ang makalabas"],
+         ["Stand in the middle of the door and chat with friends",
+          "Tumayo sa gitna ng pinto at makipagkuwentuhan sa mga kaibigan"],
+         ["Push people out quickly",
+          "Itulak palabas ang mga tao nang mabilis"]],
+        ["Smooth traffic flow prevents crowding and keeps people safe.",
+         "Ang maayos na daloy ng tao ay pumipigil sa siksikan at nagpapanatiling ligtas ang lahat."]),
+
+      Q("A", ["Wet Floor Hazard", "Basang Sahig"],
+        ["It is raining and the lobby floor is wet. What should the usher do?",
+         "Umuulan at basa ang sahig sa lobby. Ano ang dapat gawin ng usher?"],
+        [["Place caution signs and mats, wipe puddles, and help guests with umbrellas",
+          "Maglagay ng babala at banig, punasan ang tubig, at tulungan ang mga bisita sa kanilang payong"],
+         ["Leave it so people learn to walk carefully",
+          "Hayaan para matutong mag-ingat ang mga tao"],
+         ["Close the lobby and send everyone outside",
+          "Isara ang lobby at palabasin ang lahat"],
+         ["Wait until someone slips before acting",
+          "Hintayin munang may madulas bago kumilos"]],
+        ["Preventing accidents is part of caring for God's people.",
+         "Ang pag-iwas sa aksidente ay bahagi ng pag-aalaga sa bayan ng Diyos."]),
+
+      Q("A", ["Service Animals", "Mga Hayop na Tagapaglingkod"],
+        ["A visitor arrives with a guide dog or service animal. How should the usher respond?",
+         "May bisitang dumating na may kasamang guide dog o service animal. Paano dapat tumugon ang usher?"],
+        [["Welcome them warmly, follow church policy, and seat them where there is enough room",
+          "Malugod silang tanggapin, sundin ang patakaran ng simbahan, at paupuin kung saan may sapat na espasyo"],
+         ["Refuse entry without asking anyone",
+          "Tumanggi nang hindi nagtatanong sa sinuman"],
+         ["Laugh and make comments about the animal",
+          "Tumawa at magkomento tungkol sa hayop"],
+         ["Pet and play with the animal while on duty",
+          "Haplusin at laruin ang hayop habang naka-duty"]],
+        ["Welcome people with disabilities graciously and ask leadership if unsure about policy.",
+         "Tanggapin nang maayos ang mga may kapansanan at magtanong sa pamunuan kung hindi sigurado sa patakaran."]),
+
+      Q("A", ["Someone in Tears", "May Umiiyak"],
+        ["A member is crying during worship. What is the wise response?",
+         "May miyembrong umiiyak habang may pagsamba. Ano ang matalinong tugon?"],
+        [["Give space, offer a tissue quietly, and ask if they would like prayer or someone to sit with them",
+          "Bigyan ng espasyo, tahimik na mag-abot ng tisyu, at itanong kung gusto nila ng panalangin o may uupo sa tabi nila"],
+         ["Ask loudly what is wrong",
+          "Itanong nang malakas kung ano ang problema"],
+         ["Tell them to stop because it is distracting",
+          "Sabihing tumigil dahil nakakaistorbo"],
+         ["Stand over them until they finish",
+          "Tumayo sa tabi nila hanggang matapos silang umiyak"]],
+        ["Mourn with those who mourn (Romans 12:15), gently and respectfully.",
+         "Makiiyak sa mga umiiyak (Roma 12:15), nang mahinahon at may paggalang."]),
+
+      Q("A", ["Saved Seats Dispute", "Alitan sa Reserbadong Upuan"],
+        ["Two members argue over a saved seat. What should the usher do?",
+         "Nagtatalo ang dalawang miyembro dahil sa isang itinabing upuan. Ano ang dapat gawin ng usher?"],
+        [["Calmly step in, listen to both, and kindly suggest a fair solution such as another nearby seat",
+          "Mahinahong makialam, pakinggan ang dalawa, at magiliw na magmungkahi ng patas na solusyon tulad ng ibang malapit na upuan"],
+         ["Choose a side and scold the other",
+          "Pumanig at pagalitan ang isa"],
+         ["Walk away so they sort it out",
+          "Umalis para sila na lang ang mag-ayos"],
+         ["Take the seat yourself",
+          "Ikaw na lang ang umupo sa upuan"]],
+        ["Peacemaking: calm listening and fair options end disputes gracefully.",
+         "Pagkakasundo: ang mahinahong pakikinig at patas na opsyon ay nagtatapos ng alitan nang maayos."]),
+
+      Q("A", ["Solicitation", "Panghihingi o Pagbebenta"],
+        ["Someone starts distributing flyers or selling items inside the sanctuary. What should the usher do?",
+         "May nagsimulang mamigay ng flyer o magbenta sa loob ng santuwaryo. Ano ang dapat gawin ng usher?"],
+        [["Politely stop them, explain church policy, and refer them to the Head Usher or church office",
+          "Magalang silang pigilan, ipaliwanag ang patakaran, at i-refer sa Head Usher o tanggapan ng simbahan"],
+         ["Buy from them and encourage others to buy",
+          "Bumili at hikayatin ang iba na bumili"],
+         ["Ignore them completely",
+          "Huwag silang pansinin"],
+         ["Push them out of the building",
+          "Itulak sila palabas ng gusali"]],
+        ["Protect the worship space with courtesy and by following the correct chain of leadership.",
+         "Protektahan ang lugar ng pagsamba nang may kagandahang-asal at sa pamamagitan ng tamang hanay ng pamunuan."]),
+
+      Q("A", ["Unattended Bag", "Bag na Walang Nagbabantay"],
+        ["You notice a bag left alone near the exit. What is the correct action?",
+         "Napansin mo ang isang bag na naiwan malapit sa labasan. Ano ang tamang gawin?"],
+        [["Do not move or open it; keep people at a safe distance and report to the Head Usher or security",
+          "Huwag galawin o buksan; ilayo ang mga tao at i-ulat sa Head Usher o security"],
+         ["Open it to look for the owner's name",
+          "Buksan para hanapin ang pangalan ng may-ari"],
+         ["Throw it away to keep the floor clean",
+          "Itapon para malinis ang sahig"],
+         ["Take it home for safekeeping",
+          "Iuwi para ingatan"]],
+        ["Unknown items can be dangerous; report first and let trained people handle them.",
+         "Maaaring mapanganib ang hindi kilalang gamit; mag-ulat muna at hayaang ang sanay ang humawak."]),
+
+      Q("A", ["Hearing Difficulty", "Hirap sa Pandinig"],
+        ["A member says they cannot hear well during the service. What can the usher do?",
+         "Sinabi ng isang miyembro na hindi siya makarinig nang maayos. Ano ang magagawa ng usher?"],
+        [["Seat them closer to the front or speakers and ask the proper team about hearing assistance",
+          "Paupuin malapit sa harap o speaker at magtanong sa tamang pangkat tungkol sa tulong sa pandinig"],
+         ["Tell them to just guess what is said",
+          "Sabihin sa kanilang hulaan na lang ang sinasabi"],
+         ["Speak louder to them during the sermon",
+          "Lakasan ang pagsasalita sa kanila habang nagtuturo"],
+         ["Ask them to leave",
+          "Hilingin sa kanilang umalis"]],
+        ["Small adjustments help every person take part in worship.",
+         "Ang maliliit na pag-aayos ay nakatutulong upang makalahok ang bawat isa sa pagsamba."]),
+
+      Q("A", ["Hot or Cold Seating", "Init o Lamig sa Upuan"],
+        ["Several members in one area say it is too cold because of the air-conditioning. What should the usher do?",
+         "Ilang miyembro sa isang bahagi ang nagsabing masyadong malamig dahil sa aircon. Ano ang dapat gawin ng usher?"],
+        [["Coordinate with the facilities team to adjust airflow and offer alternative seats",
+          "Makipag-ugnayan sa facilities team para ayusin ang hangin at mag-alok ng ibang upuan"],
+         ["Tell them to endure it as a test of faith",
+          "Sabihing tiisin ito bilang pagsubok ng pananampalataya"],
+         ["Ignore the complaints",
+          "Huwag pansinin ang mga reklamo"],
+         ["Open all doors and windows without asking",
+          "Buksan ang lahat ng pinto at bintana nang walang paalam"]],
+        ["Comfort is part of care; work with the team that controls the facilities.",
+         "Bahagi ng malasakit ang ginhawa; makipagtulungan sa pangkat na may hawak ng pasilidad."]),
+
+      Q("A", ["Overflow Seating", "Dagdag na Upuan"],
+        ["The sanctuary is full and more people are arriving. What should the usher do?",
+         "Puno na ang santuwaryo at may dumarating pang tao. Ano ang dapat gawin ng usher?"],
+        [["Kindly guide them to the overflow area or extra seats, keeping aisles and exits clear",
+          "Magiliw silang gabayan sa overflow area o dagdag na upuan, habang iniiwang bukas ang pasilyo at labasan"],
+         ["Let them stand in the aisles",
+          "Hayaan silang tumayo sa mga pasilyo"],
+         ["Turn everyone away",
+          "Tanggihan ang lahat"],
+         ["Add chairs in front of the emergency exits",
+          "Magdagdag ng upuan sa harap ng mga emergency exit"]],
+        ["Welcome as many as possible without blocking safe paths.",
+         "Tanggapin ang pinakamarami hangga't maaari nang hindi hinaharangan ang ligtas na daan."]),
+
+      Q("A", ["Camera & Media Area", "Lugar ng Kamera at Media"],
+        ["An usher is standing where the livestream camera needs a clear view. What should be done?",
+         "May usher na nakatayo sa lugar na kailangang malinaw para sa kamera ng livestream. Ano ang dapat gawin?"],
+        [["Coordinate with the media team and move to a spot that does not block the camera",
+          "Makipag-ugnayan sa media team at lumipat sa lugar na hindi hahadlang sa kamera"],
+         ["Stay put because ushers always come first",
+          "Manatili dahil laging mas mauuna ang usher"],
+         ["Wave at the camera to be seen",
+          "Kumaway sa kamera para makita"],
+         ["Cover the lens to avoid being filmed",
+          "Takpan ang lente para hindi makunan"]],
+        ["Teamwork means working around other ministries without competition.",
+         "Ang pagtutulungan ay ang pakikibagay sa ibang ministeryo nang walang kompetisyon."]),
+
+      Q("A", ["Requests for Money", "Paghingi ng Pera"],
+        ["A visitor asks the usher for money. What is the best response?",
+         "May bisitang humingi ng pera sa usher. Ano ang pinakamainam na tugon?"],
+        [["Treat them kindly and refer them to the church's care or benevolence team",
+          "Pakitunguhan nang mabait at i-refer sa care o benevolence team ng simbahan"],
+         ["Give money from the offering basket",
+          "Magbigay ng pera mula sa basket ng handog"],
+         ["Scold them for asking",
+          "Pagalitan sila sa paghingi"],
+         ["Give your personal contact details to everyone who asks",
+          "Ibigay ang personal na impormasyon mo sa sinumang magtanong"]],
+        ["Compassion with proper channels: connect people to the team trained to help.",
+         "Habag na may tamang proseso: ikonekta ang tao sa pangkat na sanay tumulong."]),
+
+      Q("A", ["Meeting the Pastor", "Pakikipagkita sa Pastor"],
+        ["A visitor asks to meet the pastor after service. What should the usher do?",
+         "Humiling ang isang bisita na makipagkita sa pastor pagkatapos ng serbisyo. Ano ang dapat gawin ng usher?"],
+        [["Warmly welcome the request and coordinate with the Head Usher or pastoral staff instead of promising",
+          "Malugod na tanggapin ang hiling at makipag-ugnayan sa Head Usher o pastoral staff sa halip na mangako"],
+         ["Promise a private meeting right away",
+          "Mangako ng pribadong pagpupulong agad"],
+         ["Say the pastor is too important to meet anyone",
+          "Sabihing masyadong mahalaga ang pastor para makipagkita"],
+         ["Take them straight to the pastor's office without asking",
+          "Dalhin sila diretso sa opisina ng pastor nang walang paalam"]],
+        ["Ushers connect guests to leaders through the right process.",
+         "Ikinokonekta ng mga usher ang mga bisita sa mga lider sa pamamagitan ng tamang proseso."]),
+
+      Q("A", ["Strollers & Equipment", "Stroller at Kagamitan"],
+        ["A parent arrives with a stroller. Where should the usher direct it?",
+         "Dumating ang magulang na may stroller. Saan ito dapat ituro ng usher?"],
+        [["To a designated spot or the end of a row where it does not block aisles or exits",
+          "Sa itinalagang lugar o dulo ng hanay kung saan hindi nito haharangan ang pasilyo o labasan"],
+         ["Right in the middle of the main aisle",
+          "Sa mismong gitna ng pangunahing pasilyo"],
+         ["In front of the emergency exit",
+          "Sa harap ng emergency exit"],
+         ["Outside in the rain",
+          "Sa labas habang umuulan"]],
+        ["Always keep aisles and exits open so everyone stays safe.",
+         "Laging panatilihing bukas ang pasilyo at labasan para ligtas ang lahat."]),
+
+      /* ---------------- B = BASICS (25 more) ---------------- */
+      Q("B", ["Serving Like Jesus", "Paglilingkod Tulad ni Jesus"],
+        ["According to Mark 10:45, why did the Son of Man come?",
+         "Ayon sa Marcos 10:45, bakit naparito ang Anak ng Tao?"],
+        [["Not to be served but to serve and to give His life as a ransom for many",
+          "Hindi upang paglingkuran kundi maglingkod at ibigay ang Kanyang buhay na pantubos sa marami"],
+         ["To be served by the people",
+          "Upang paglingkuran ng mga tao"],
+         ["To build a reputation among the leaders",
+          "Upang magkaroon ng pangalan sa mga pinuno"],
+         ["To avoid the poor and the sick",
+          "Upang umiwas sa mahihirap at maysakit"]],
+        ["Jesus is our model of servant leadership.",
+         "Si Jesus ang ating huwaran ng paglilingkod bilang lider."]),
+
+      Q("B", ["Serving in Love", "Paglilingkod sa Pag-ibig"],
+        ["Galatians 5:13 encourages believers to:",
+         "Hinihikayat ng Galacia 5:13 ang mga mananampalataya na:"],
+        [["Serve one another humbly in love",
+          "Maglingkod sa isa't isa nang may pagpapakumbaba at pag-ibig"],
+         ["Use freedom to satisfy selfish desires",
+          "Gamitin ang kalayaan para sa makasariling pagnanasa"],
+         ["Compete to be recognized",
+          "Magpaligsahan para makilala"],
+         ["Avoid serving to stay comfortable",
+          "Iwasang maglingkod para manatiling kumportable"]],
+        ["Christian freedom is used to serve others in love.",
+         "Ang kalayaan ng Kristiyano ay ginagamit upang paglingkuran ang iba nang may pag-ibig."]),
+
+      Q("B", ["Using Our Gifts", "Paggamit ng Kaloob"],
+        ["According to 1 Peter 4:10, how should each person use the gift they have received?",
+         "Ayon sa 1 Pedro 4:10, paano dapat gamitin ng bawat isa ang kaloob na tinanggap?"],
+        [["To serve others as faithful stewards of God's grace",
+          "Upang maglingkod sa iba bilang tapat na katiwala ng biyaya ng Diyos"],
+         ["To show off in front of others",
+          "Upang magyabang sa harap ng iba"],
+         ["To keep it hidden for personal use only",
+          "Upang itago para sa sarili lamang"],
+         ["To earn money from the church",
+          "Upang kumita ng pera mula sa simbahan"]],
+        ["Every gift, including ushering, is meant to bless others.",
+         "Ang bawat kaloob, kasama ang pag-uusher, ay para pagpalain ang iba."]),
+
+      Q("B", ["The Greatest Servant", "Ang Pinakadakilang Lingkod"],
+        ["In Matthew 20:26, Jesus said that whoever wants to be great among you must be:",
+         "Sa Mateo 20:26, sinabi ni Jesus na ang nais maging dakila sa inyo ay dapat maging:"],
+        [["Your servant",
+          "Lingkod ninyo"],
+         ["The loudest speaker",
+          "Pinakamalakas magsalita"],
+         ["The richest member",
+          "Pinakamayamang miyembro"],
+         ["The one who is never wrong",
+          "Ang hindi nagkakamali kailanman"]],
+        ["Greatness in God's kingdom is measured by service.",
+         "Ang kadakilaan sa kaharian ng Diyos ay sinusukat sa paglilingkod."]),
+
+      Q("B", ["Hospitality to Strangers", "Mabuting Pakikitungo sa Di-kilala"],
+        ["Hebrews 13:2 reminds us to:",
+         "Ipinaaalala ng Hebreo 13:2 na:"],
+        [["Not forget to show hospitality to strangers",
+          "Huwag kalimutang magpakita ng mabuting pakikitungo sa mga di-kilala"],
+         ["Avoid new faces",
+          "Iwasan ang mga bagong mukha"],
+         ["Serve only those we already know",
+          "Paglingkuran lamang ang mga kilala na"],
+         ["Judge visitors quickly",
+          "Humusga agad sa mga bisita"]],
+        ["Every guest is a person to welcome with honor.",
+         "Ang bawat bisita ay taong dapat tanggapin nang may karangalan."]),
+
+      Q("B", ["Practicing Hospitality", "Pagsasagawa ng Mabuting Pakikitungo"],
+        ["Romans 12:13 tells believers to:",
+         "Sinasabi ng Roma 12:13 sa mga mananampalataya na:"],
+        [["Share with God's people in need and practice hospitality",
+          "Ibahagi sa mga nangangailangan sa bayan ng Diyos at magsagawa ng mabuting pakikitungo"],
+         ["Keep resources only for themselves",
+          "Itago ang mga yaman para sa sarili"],
+         ["Avoid helping other believers",
+          "Iwasang tumulong sa ibang mananampalataya"],
+         ["Let leaders do all the helping",
+          "Ipaubaya sa mga lider ang lahat ng pagtulong"]],
+        ["Hospitality is an act of obedience, not an optional extra.",
+         "Ang mabuting pakikitungo ay pagsunod, hindi dagdag na opsyon lamang."]),
+
+      Q("B", ["The Gentle Answer", "Ang Malumanay na Sagot"],
+        ["What does Proverbs 15:1 teach?",
+         "Ano ang itinuturo ng Kawikaan 15:1?"],
+        [["A gentle answer turns away wrath, but a harsh word stirs up anger",
+          "Ang malumanay na sagot ay nagpapahupa ng poot, ngunit ang mabagsik na salita ay pumupukaw ng galit"],
+         ["Speaking louder always solves problems",
+          "Ang pagsasalita nang mas malakas ay laging lumulutas ng problema"],
+         ["Silence is always better than speaking",
+          "Mas mabuti palaging manahimik kaysa magsalita"],
+         ["Never answer anyone",
+          "Huwag sagutin ang sinuman"]],
+        ["Soft words defuse conflict; ushers use them often.",
+         "Napapahupa ng malumanay na salita ang alitan; madalas itong gamitin ng mga usher."]),
+
+      Q("B", ["Humility", "Pagpapakumbaba"],
+        ["Philippians 2:3-4 teaches us to:",
+         "Itinuturo ng Filipos 2:3-4 na:"],
+        [["Do nothing out of selfish ambition, and value others above ourselves",
+          "Huwag gumawa dahil sa makasariling ambisyon, at ituring na mas mataas ang iba kaysa sa sarili"],
+         ["Put ourselves first in all things",
+          "Unahin ang sarili sa lahat ng bagay"],
+         ["Compete to win praise",
+          "Magpaligsahan para papurihan"],
+         ["Look only at our own interests",
+          "Tingnan lamang ang sariling kapakanan"]],
+        ["Humble service puts others first.",
+         "Inuuna ng mapagpakumbabang paglilingkod ang iba."]),
+
+      Q("B", ["Faithful in Little", "Tapat sa Maliit"],
+        ["According to Luke 16:10, whoever can be trusted with very little:",
+         "Ayon sa Lucas 16:10, ang mapagkakatiwalaan sa napakaliit ay:"],
+        [["Can also be trusted with much",
+          "Mapagkakatiwalaan din sa marami"],
+         ["Will never be trusted with more",
+          "Hindi kailanman pagkakatiwalaan ng higit pa"],
+         ["Should avoid all responsibility",
+          "Dapat umiwas sa anumang responsibilidad"],
+         ["Must prove it with money first",
+          "Kailangang patunayan muna gamit ang pera"]],
+        ["Small tasks like opening a door show faithfulness.",
+         "Ang maliliit na gawain tulad ng pagbubukas ng pinto ay nagpapakita ng katapatan."]),
+
+      Q("B", ["Faithful Stewards", "Tapat na Katiwala"],
+        ["1 Corinthians 4:2 says that those who are given a trust must:",
+         "Sinasabi ng 1 Corinto 4:2 na ang pinagkatiwalaan ay dapat:"],
+        [["Prove faithful",
+          "Magpakita ng katapatan"],
+         ["Be popular",
+          "Maging tanyag"],
+         ["Be paid first",
+          "Mabayaran muna"],
+         ["Be perfect and never make mistakes",
+          "Maging ganap at hindi magkamali"]],
+        ["Faithfulness is the main requirement in any ministry.",
+         "Ang katapatan ang pangunahing hinihingi sa anumang ministeryo."]),
+
+      Q("B", ["Guard Your Steps", "Mag-ingat sa Paghakbang"],
+        ["Ecclesiastes 5:1 says to guard your steps when you go to the house of God and:",
+         "Sinasabi ng Eclesiastes 5:1 na mag-ingat sa paghakbang sa bahay ng Diyos at:"],
+        [["Go near to listen rather than offer careless words",
+          "Lumapit upang making sa halip na mag-alay ng pabayang salita"],
+         ["Speak as much as possible",
+          "Magsalita nang magsalita hangga't maaari"],
+         ["Rush through the visit",
+          "Magmadali sa pagbisita"],
+         ["Wear the most expensive clothes",
+          "Magsuot ng pinakamamahaling damit"]],
+        ["Reverence in God's house begins with a listening heart.",
+         "Ang paggalang sa bahay ng Diyos ay nagsisimula sa pusong nakikinig."]),
+
+      Q("B", ["Joy in Going", "Galak sa Pagpunta"],
+        ["Psalm 122:1 says, \"I rejoiced with those who said to me...\"",
+         "Sinasabi ng Awit 122:1, \"Nagalak ako nang sabihin nila sa akin...\""],
+        [["\"Let us go to the house of the Lord\"",
+          "\"Tayo na sa bahay ng Panginoon\""],
+         ["\"Let us rest at home\"",
+          "\"Magpahinga na lang tayo sa bahay\""],
+         ["\"Let us travel for fun\"",
+          "\"Maglakbay tayo para magsaya\""],
+         ["\"Let us skip the meeting\"",
+          "\"Lumiban tayo sa pagtitipon\""]],
+        ["Ushers help create the joy of coming into God's house.",
+         "Tumutulong ang mga usher na lumikha ng galak sa pagpasok sa bahay ng Diyos."]),
+
+      Q("B", ["Meeting Together", "Pagtitipon"],
+        ["Hebrews 10:25 urges believers not to give up:",
+         "Hinihimok ng Hebreo 10:25 ang mga mananampalataya na huwag tumigil sa:"],
+        [["Meeting together, but to encourage one another",
+          "Pagtitipon, kundi magpalakasan ng loob sa isa't isa"],
+         ["Giving to the poor",
+          "Pagbibigay sa mahihirap"],
+         ["Singing songs",
+          "Pag-awit ng mga awit"],
+         ["Reading alone",
+          "Pagbabasa nang mag-isa"]],
+        ["Gathering strengthens faith; ushers make the gathering welcoming.",
+         "Pinatatatag ng pagtitipon ang pananampalataya; ginagawa ng mga usher na kaaya-aya ang pagtitipon."]),
+
+      Q("B", ["Perseverance in Trials", "Pagtitiis sa Pagsubok"],
+        ["James 1:3-4 says that the testing of faith produces:",
+         "Sinasabi ng Santiago 1:3-4 na ang pagsubok sa pananampalataya ay nagbubunga ng:"],
+        [["Perseverance (hupomone) that makes us mature and complete",
+          "Pagtitiis (hupomone) na nagpapalago at nagpapaganap sa atin"],
+         ["Quick anger",
+          "Mabilis na galit"],
+         ["Fear of serving",
+          "Takot na maglingkod"],
+         ["Pride in our strength",
+          "Pagmamalaki sa sariling lakas"]],
+        ["Hupomone means staying faithful through difficulty and growing in character.",
+         "Ang hupomone ay pananatiling tapat sa gitna ng hirap at paglago sa karakter."]),
+
+      Q("B", ["Running with Perseverance", "Pagtakbo nang may Pagtitiis"],
+        ["Hebrews 12:1 encourages us to run the race marked out for us:",
+         "Hinihikayat tayo ng Hebreo 12:1 na tumakbo sa karerang inilaan sa atin:"],
+        [["With perseverance, throwing off everything that hinders",
+          "Nang may pagtitiis, at iwaksi ang lahat ng humahadlang"],
+         ["Only when it is easy",
+          "Kapag madali lamang"],
+         ["Alone and without help",
+          "Mag-isa at walang tulong"],
+         ["By carrying more burdens",
+          "Sa pamamagitan ng pagdadala ng mas maraming pasanin"]],
+        ["The runner in the Hupomone logo reminds us to keep going with endurance.",
+         "Ang tumatakbo sa logo ng Hupomone ay paalala na magpatuloy nang may pagtitiis."]),
+
+      Q("B", ["No Favoritism", "Walang Kinikilingan"],
+        ["James 2:1-4 warns against:",
+         "Nagbababala ang Santiago 2:1-4 laban sa:"],
+        [["Showing favoritism to the rich while neglecting the poor",
+          "Pagpanig sa mayaman habang binabalewala ang mahirap"],
+         ["Greeting people kindly",
+          "Pagbati sa tao nang magiliw"],
+         ["Providing seats for guests",
+          "Pagbibigay ng upuan sa mga bisita"],
+         ["Serving the needy",
+          "Paglilingkod sa mga nangangailangan"]],
+        ["Ushers treat every person with equal honor.",
+         "Pinakikitunguhan ng mga usher ang bawat tao nang may pantay na karangalan."]),
+
+      Q("B", ["Name Badge & Uniform", "Name Badge at Uniporme"],
+        ["Why do ushers wear a badge or uniform?",
+         "Bakit nagsusuot ng badge o uniporme ang mga usher?"],
+        [["So people can easily recognize them and know where to ask for help",
+          "Para madali silang makilala at malaman ng tao kung saan hihingi ng tulong"],
+         ["To feel superior to others",
+          "Para maramdamang mas mataas sila sa iba"],
+         ["To get free meals",
+          "Para makakuha ng libreng pagkain"],
+         ["Only for photos",
+          "Para sa larawan lamang"]],
+        ["A visible identity makes it easier for guests to find help.",
+         "Ang malinaw na pagkakakilanlan ay nagpapadali sa mga bisita na makahanap ng tulong."]),
+
+      Q("B", ["The Head Usher", "Ang Head Usher"],
+        ["Who is the Head Usher?",
+         "Sino ang Head Usher?"],
+        [["The leader of the ushering team to whom ushers report and coordinate with",
+          "Ang lider ng pangkat ng mga usher na pinag-uulatan at kasamang nag-uugnay"],
+         ["Someone who only counts money",
+          "Taong nagbibilang lamang ng pera"],
+         ["A member who has no role",
+          "Miyembrong walang tungkulin"],
+         ["The person who selects the songs",
+          "Ang pumipili ng mga awit"]],
+        ["Order requires clear leadership and communication.",
+         "Ang kaayusan ay nangangailangan ng malinaw na pamumuno at komunikasyon."]),
+
+      Q("B", ["Confidentiality", "Pagiging Kompidensyal"],
+        ["An usher hears a member's personal problem. What is the right way to handle it?",
+         "Narinig ng isang usher ang personal na problema ng isang miyembro. Ano ang tamang paghawak dito?"],
+        [["Keep it confidential and share only with the proper leader if help is needed",
+          "Panatilihing lihim at ibahagi lamang sa tamang lider kung kailangan ng tulong"],
+         ["Share it as prayer requests in every group chat",
+          "Ibahagi bilang prayer request sa bawat group chat"],
+         ["Tell your friends so they can gossip",
+          "Sabihin sa mga kaibigan para magtsismisan"],
+         ["Post it on social media",
+          "I-post sa social media"]],
+        ["Trust is a sacred part of ministry; protect people's privacy.",
+         "Sagrado ang tiwala sa ministeryo; ingatan ang pribasya ng mga tao."]),
+
+      Q("B", ["Prayer First", "Panalangin Muna"],
+        ["Why do ushers pray together before service?",
+         "Bakit nananalangin nang sama-sama ang mga usher bago ang serbisyo?"],
+        [["To ask God for a servant's heart, unity, and wisdom to care for people",
+          "Upang hilingin sa Diyos ang puso ng lingkod, pagkakaisa, at karunungan sa pag-aalaga ng tao"],
+         ["To pass the time until the doors open",
+          "Upang magpalipas ng oras hanggang buksan ang pinto"],
+         ["Only because it is a tradition",
+          "Dahil tradisyon lamang ito"],
+         ["To show we are better than others",
+          "Upang ipakitang mas mabuti kami sa iba"]],
+        ["Ministry flows from prayer; service without prayer is only activity.",
+         "Ang ministeryo ay nagmumula sa panalangin; ang paglilingkod na walang panalangin ay gawain lamang."]),
+
+      Q("B", ["One Body", "Isang Katawan"],
+        ["1 Corinthians 12:12-27 compares the church to:",
+         "Inihahambing ng 1 Corinto 12:12-27 ang simbahan sa:"],
+        [["One body with many parts, each important",
+          "Isang katawan na maraming bahagi, bawat isa ay mahalaga"],
+         ["A single hand that does everything",
+          "Isang kamay na gumagawa ng lahat"],
+         ["A building with one door",
+          "Isang gusaling iisa ang pinto"],
+         ["A club with no roles",
+          "Isang samahang walang tungkulin"]],
+        ["No role is small; ushers are an important part of the body.",
+         "Walang maliit na tungkulin; mahalagang bahagi ng katawan ang mga usher."]),
+
+      Q("B", ["A Cheerful Face", "Masayang Mukha"],
+        ["Proverbs 15:30 says, \"A cheerful look brings joy to the heart.\" How does this apply to ushers?",
+         "Sinasabi ng Kawikaan 15:30, \"Ang masayang tingin ay nagbibigay-galak sa puso.\" Paano ito naaangkop sa mga usher?"],
+        [["A genuine smile and warm face welcome and encourage people as they enter",
+          "Ang tapat na ngiti at magiliw na mukha ay tumatanggap at nagpapalakas ng loob ng mga pumapasok"],
+         ["Ushers should look serious and unfriendly",
+          "Dapat seryoso at hindi palakaibigan ang mukha ng usher"],
+         ["Smiling is only for photos",
+          "Ang ngiti ay para lamang sa larawan"],
+         ["Ushers should avoid eye contact",
+          "Dapat umiwas ng tingin ang mga usher"]],
+        ["Our face and tone often speak before our words do.",
+         "Madalas na nauuna ang ating mukha at tono bago ang ating mga salita."]),
+
+      Q("B", ["Let Your Light Shine", "Magliwanag ang Inyong Ilaw"],
+        ["Matthew 5:16 says our good deeds should lead people to:",
+         "Sinasabi ng Mateo 5:16 na ang ating mabubuting gawa ay dapat umakay sa tao na:"],
+        [["Glorify our Father in heaven",
+          "Luwalhatiin ang ating Amang nasa langit"],
+         ["Praise us as individuals",
+          "Purihin tayo bilang indibidwal"],
+         ["Compete with us",
+          "Makipagpaligsahan sa atin"],
+         ["Ignore the church",
+          "Huwag pansinin ang simbahan"]],
+        ["We serve so that God, not the servant, receives the glory.",
+         "Naglilingkod tayo upang ang Diyos, hindi ang lingkod, ang luwalhatiin."]),
+
+      Q("B", ["The Name SerLord", "Ang Pangalang SerLord"],
+        ["The name SerLord reflects the heart of the ministry, which is to:",
+         "Ang pangalang SerLord ay sumasalamin sa puso ng ministeryo, ang:"],
+        [["Serve the Lord by serving His people",
+          "Maglingkod sa Panginoon sa pamamagitan ng paglilingkod sa Kanyang bayan"],
+         ["Control the church",
+          "Kontrolin ang simbahan"],
+         ["Collect attention",
+          "Mangolekta ng atensyon"],
+         ["Avoid responsibilities",
+          "Umiwas sa mga responsibilidad"]],
+        ["SerLord = serving the Lord, in the spirit of Colossians 3:23.",
+         "SerLord = paglilingkod sa Panginoon, ayon sa diwa ng Colosas 3:23."]),
+
+      Q("B", ["What is Hospitality?", "Ano ang Mabuting Pakikitungo?"],
+        ["Which best describes hospitality in ministry?",
+         "Alin ang pinakamahusay na naglalarawan ng mabuting pakikitungo sa ministeryo?"],
+        [["Welcoming people generously so they feel valued, safe, and at home",
+          "Pagtanggap sa mga tao nang bukas-palad upang maramdaman nilang mahalaga, ligtas, at nasa tahanan sila"],
+         ["Only greeting friends and family",
+          "Pagbati lamang sa mga kaibigan at kamag-anak"],
+         ["Giving gifts to important guests only",
+          "Pagbibigay ng regalo sa mahahalagang bisita lamang"],
+         ["Checking people's clothes at the door",
+          "Pagsuri sa suot ng tao sa pinto"]],
+        ["Hospitality welcomes every person as someone God loves.",
+         "Tinatanggap ng mabuting pakikitungo ang bawat tao bilang minamahal ng Diyos."]),
+
+      /* ---------------- C = CHECKPOINT (25 more) ---------------- */
+      Q("C", ["Uniform & Badge Check", "Pagsusuri ng Uniporme at Badge"],
+        ["Before going to your post, what is the personal appearance checkpoint?",
+         "Bago pumuwesto, ano ang checkpoint sa personal na anyo?"],
+        [["Check that your uniform is neat, your badge is visible, and you are well groomed",
+          "Tiyaking maayos ang uniporme, kita ang badge, at maayos ang iyong pananamit at ayos"],
+         ["Leave the badge in your bag",
+          "Iwan ang badge sa bag"],
+         ["Wear whatever is comfortable",
+          "Magsuot ng anumang komportable"],
+         ["Skip checking since no one will notice",
+          "Huwag nang suriin dahil walang makakapansin"]],
+        ["Ushers are visible representatives of the ministry and church.",
+         "Ang mga usher ay nakikitang kinatawan ng ministeryo at ng simbahan."]),
+
+      Q("C", ["Phone on Silent", "Telepono sa Silent"],
+        ["What is the correct checkpoint for your phone while on duty?",
+         "Ano ang tamang checkpoint para sa iyong telepono habang naka-duty?"],
+        [["Set it to silent and use it only for ministry needs",
+          "Ilagay sa silent at gamitin lamang para sa pangangailangan ng ministeryo"],
+         ["Play videos at your post",
+          "Manood ng video sa puwesto"],
+         ["Leave the ringer on at full volume",
+          "Iwang malakas ang tunog ng tawag"],
+         ["Take selfies during the sermon",
+          "Magselfie habang nagtuturo"]],
+        ["A silent phone keeps your focus on people and the service.",
+         "Ang telepono sa silent ay nagpapanatili ng pokus mo sa mga tao at sa serbisyo."]),
+
+      Q("C", ["Aisle Check", "Pagsusuri ng Pasilyo"],
+        ["Before service starts, what do you check in the aisles?",
+         "Bago magsimula ang serbisyo, ano ang sinusuri sa mga pasilyo?"],
+        [["That they are free from bags, cables, trash, and anything people could trip on",
+          "Na wala ritong bag, kable, basura, at anumang maaaring ikatisod ng tao"],
+         ["That they are full of equipment",
+          "Na puno ito ng kagamitan"],
+         ["That they are decorated heavily",
+          "Na pinalamutian nang husto"],
+         ["That they are locked",
+          "Na nakakandado ito"]],
+        ["Clear aisles prevent accidents and speed up emergency exits.",
+         "Ang malilinis na pasilyo ay pumipigil sa aksidente at nagpapabilis sa paglikas."]),
+
+      Q("C", ["Medical Contacts", "Contact sa Medikal"],
+        ["Which readiness checkpoint helps in a medical emergency?",
+         "Aling checkpoint sa kahandaan ang makatutulong sa emerhensiyang medikal?"],
+        [["Know where the first aid kit is and how to quickly reach the medical team and Head Usher",
+          "Alamin kung nasaan ang first aid kit at kung paano agad maabot ang medical team at Head Usher"],
+         ["Assume someone else will remember",
+          "Ipagpalagay na may ibang makakaalala"],
+         ["Hide the first aid kit so it stays clean",
+          "Itago ang first aid kit para manatiling malinis"],
+         ["Wait to ask the congregation during the emergency",
+          "Maghintay na magtanong sa kongregasyon sa mismong emerhensiya"]],
+        ["Knowing contacts and supplies ahead of time saves precious minutes.",
+         "Ang pag-alam sa mga contact at gamit nang maaga ay nakatitipid ng mahahalagang minuto."]),
+
+      Q("C", ["Stock Check", "Pagsusuri ng Suplay"],
+        ["What stock checkpoint should be done before service?",
+         "Anong checkpoint sa suplay ang dapat gawin bago ang serbisyo?"],
+        [["Ensure bulletins, visitor cards, pens, and envelopes are available where needed",
+          "Tiyaking may bulletin, visitor card, pang-sulat, at sobre sa mga lugar na kailangan"],
+         ["Remove all printed materials",
+          "Alisin ang lahat ng nakalimbag na materyales"],
+         ["Wait until guests ask for them",
+          "Hintayin munang hingin ng mga bisita"],
+         ["Hide them to keep the area neat",
+          "Itago para maging maayos ang lugar"]],
+        ["Prepared supplies show care and remove small frustrations.",
+         "Ang handang suplay ay tanda ng malasakit at nag-aalis ng maliliit na abala."]),
+
+      Q("C", ["Restroom Check", "Pagsusuri ng Banyo"],
+        ["Which facility checkpoint is part of the usher's pre-service routine?",
+         "Aling checkpoint sa pasilidad ang bahagi ng gawain ng usher bago ang serbisyo?"],
+        [["Check that restrooms are clean and stocked, and report issues to the facilities team",
+          "Tiyaking malinis at may suplay ang mga banyo, at i-ulat ang problema sa facilities team"],
+         ["Lock the restrooms during the service",
+          "Ikandado ang mga banyo habang may serbisyo"],
+         ["Ignore restrooms since they are not in the sanctuary",
+          "Huwag pansinin ang banyo dahil wala ito sa santuwaryo"],
+         ["Clean them only on special days",
+          "Linisin lamang sa mga espesyal na araw"]],
+        ["Attention to small details reflects the Lord's excellence.",
+         "Ang pansin sa maliliit na detalye ay sumasalamin sa kahusayan ng Panginoon."]),
+
+      Q("C", ["Reserved Seats", "Mga Reserbadong Upuan"],
+        ["What is the checkpoint for reserved seating?",
+         "Ano ang checkpoint para sa mga reserbadong upuan?"],
+        [["Confirm the reserved rows are clearly marked and the team knows who they are for",
+          "Tiyaking malinaw ang marka ng mga reserbadong hanay at alam ng pangkat kung para kanino ang mga ito"],
+         ["Let everyone figure it out themselves",
+          "Hayaang sila na ang mag-ayos nito"],
+         ["Reserve seats for relatives only",
+          "Ireserba lamang para sa mga kamag-anak"],
+         ["Remove all signs",
+          "Alisin ang lahat ng marka"]],
+        ["Clear marking prevents disputes and confusion.",
+         "Ang malinaw na marka ay pumipigil sa alitan at kalituhan."]),
+
+      Q("C", ["Pre-Service Briefing", "Briefing Bago ang Serbisyo"],
+        ["What should be confirmed during the pre-service briefing?",
+         "Ano ang dapat tiyakin sa briefing bago ang serbisyo?"],
+        [["Order of service, special segments or changes, assignments, and emergency plans",
+          "Takbo ng programa, mga espesyal na bahagi o pagbabago, mga tungkulin, at plano sa emerhensiya"],
+         ["Only who will take lunch",
+          "Kung sino lang ang kakain ng tanghalian"],
+         ["Nothing, since everything is always the same",
+          "Wala, dahil laging pareho ang lahat"],
+         ["Who gets the best seat",
+          "Kung sino ang may pinakamagandang upuan"]],
+        ["A good briefing aligns the whole team before guests arrive.",
+         "Pinag-iisa ng magandang briefing ang buong pangkat bago dumating ang mga bisita."]),
+
+      Q("C", ["Opening the Doors", "Pagbubukas ng Pinto"],
+        ["What is the checkpoint for opening the doors?",
+         "Ano ang checkpoint sa pagbubukas ng pinto?"],
+        [["Open on time, only after the sanctuary is ready and every post is staffed",
+          "Magbukas sa tamang oras, matapos maging handa ang santuwaryo at may bantay ang bawat puwesto"],
+         ["Open early before cleaning is done",
+          "Magbukas nang maaga kahit hindi pa tapos ang paglilinis"],
+         ["Open late to make people wait",
+          "Magbukas nang huli para paghintayin ang tao"],
+         ["Open only when someone complains",
+          "Magbukas lamang kapag may nagreklamo"]],
+        ["Readiness and punctuality set the tone for the entire service.",
+         "Ang kahandaan at pagiging maagap ang nagtatakda ng tono ng buong serbisyo."]),
+
+      Q("C", ["Mid-Service Scan", "Pagmamasid Habang May Serbisyo"],
+        ["What checkpoint should ushers repeat during the service?",
+         "Anong checkpoint ang dapat ulitin ng mga usher habang may serbisyo?"],
+        [["Regularly scan the room for needs, unsafe situations, or someone who needs help",
+          "Regular na mag-obserba sa buong silid para sa pangangailangan, panganib, o taong nangangailangan ng tulong"],
+         ["Check your phone every few minutes",
+          "Tingnan ang telepono bawat ilang minuto"],
+         ["Sit down and relax once everyone is seated",
+          "Umupo at magpahinga kapag nakaupo na ang lahat"],
+         ["Leave your post to chat",
+          "Iwan ang puwesto para makipagkuwentuhan"]],
+        ["Staying alert allows you to help early and quietly.",
+         "Ang pagiging alisto ay nagbibigay-daan sa maaga at tahimik na pagtulong."]),
+
+      Q("C", ["Offering Sign-off", "Lagda sa Handog"],
+        ["After the offering is counted, what is the accountability checkpoint?",
+         "Matapos bilangin ang handog, ano ang checkpoint sa pananagutan?"],
+        [["Record the count with at least two people present and sign off according to church procedure",
+          "Itala ang bilang na may hindi bababa sa dalawang saksi at lagdaan ayon sa proseso ng simbahan"],
+         ["One person writes any number without checking",
+          "Isang tao ang magsusulat ng kahit anong bilang nang hindi sinusuri"],
+         ["Take some home to avoid losing it",
+          "Mag-uwi ng bahagi para hindi mawala"],
+         ["Skip the record to save time",
+          "Laktawan ang tala para makatipid ng oras"]],
+        ["Transparent records protect givers, ushers, and the ministry.",
+         "Ang malinaw na tala ay nagpoprotekta sa mga nagbibigay, mga usher, at sa ministeryo."]),
+
+      Q("C", ["Incident Report", "Ulat ng Insidente"],
+        ["After an incident such as a fall or a dispute, what is the right checkpoint?",
+         "Matapos ang insidente tulad ng pagkadapa o alitan, ano ang tamang checkpoint?"],
+        [["Report it to the Head Usher and write a factual, objective incident report",
+          "I-ulat sa Head Usher at sumulat ng tapat at obhetibong ulat ng insidente"],
+         ["Hide it so the church looks perfect",
+          "Itago para magmukhang perpekto ang simbahan"],
+         ["Post about it on social media",
+          "I-post sa social media"],
+         ["Blame someone in the report",
+          "Sisihin ang isang tao sa ulat"]],
+        ["Accurate reports help leaders respond properly and prevent repeats.",
+         "Ang tumpak na ulat ay tumutulong sa mga lider na tumugon nang tama at maiwasan ang pag-uulit."]),
+
+      Q("C", ["Lost & Found Log", "Talaan ng Naiwang Gamit"],
+        ["What is the checkpoint for items found in the sanctuary?",
+         "Ano ang checkpoint para sa mga gamit na natagpuan sa santuwaryo?"],
+        [["Turn them in to the designated desk and record them so owners can claim them",
+          "Ipasa sa itinalagang mesa at itala upang makuha ng may-ari"],
+         ["Keep the best items",
+          "Itago ang pinakamagagandang gamit"],
+         ["Throw everything in the trash",
+          "Itapon lahat sa basurahan"],
+         ["Give items to the first person who asks",
+          "Ibigay ang gamit sa unang magtanong"]],
+        ["Honesty with other people's property reflects Christ's character.",
+         "Ang katapatan sa ari-arian ng iba ay sumasalamin sa karakter ni Kristo."]),
+
+      Q("C", ["Child Safety", "Kaligtasan ng Bata"],
+        ["Which child-safety checkpoint applies to ushers?",
+         "Aling checkpoint sa kaligtasan ng bata ang naaangkop sa mga usher?"],
+        [["Direct children to the children's ministry and never take a child away alone",
+          "Ituro ang mga bata sa children's ministry at huwag silang isama nang mag-isa"],
+         ["Take any child for a private walk",
+          "Isama ang sinumang bata sa pribadong paglalakad"],
+         ["Give the child to any adult who asks",
+          "Ibigay ang bata sa sinumang adult na humingi"],
+         ["Ignore children because it is not your duty",
+          "Huwag pansinin ang mga bata dahil hindi mo tungkulin"]],
+        ["Protecting children is a serious responsibility; follow the church's safety policy.",
+         "Seryosong responsibilidad ang pagprotekta sa mga bata; sundin ang patakaran ng simbahan sa kaligtasan."]),
+
+      Q("C", ["Privacy & Social Media", "Pribasya at Social Media"],
+        ["What is the confidentiality checkpoint for photos and information?",
+         "Ano ang checkpoint sa kompidensyalidad para sa litrato at impormasyon?"],
+        [["Do not share people's photos, names, or personal details without permission",
+          "Huwag ibahagi ang litrato, pangalan, o personal na detalye ng tao nang walang pahintulot"],
+         ["Post everyone's photos for likes",
+          "I-post ang litrato ng lahat para sa likes"],
+         ["Share private stories in group chats",
+          "Ibahagi ang pribadong kuwento sa group chat"],
+         ["Take photos of people in tears",
+          "Kunan ng larawan ang mga umiiyak"]],
+        ["Respect for privacy builds trust and protects dignity.",
+         "Ang paggalang sa pribasya ay nagpapatibay ng tiwala at nagpoprotekta ng dangal."]),
+
+      Q("C", ["Reconciliation Check", "Pagsusuri ng Pakikipagkasundo"],
+        ["According to Matthew 5:23-24, what should you do if you remember that someone has something against you before serving?",
+         "Ayon sa Mateo 5:23-24, ano ang dapat mong gawin kung maalala mong may hinanakit sa iyo ang isang tao bago maglingkod?"],
+        [["Go and be reconciled first, then come and offer your service",
+          "Makipagkasundo muna, saka bumalik at maghandog ng paglilingkod"],
+         ["Ignore it and serve anyway",
+          "Huwag pansinin at maglingkod pa rin"],
+         ["Avoid the person forever",
+          "Iwasan ang tao magpakailanman"],
+         ["Gossip about the person to the team",
+          "Pag-usapan ang tao sa buong pangkat"]],
+        ["Right relationships come before ministry activity.",
+         "Ang tamang relasyon ay nauuna bago ang gawain sa ministeryo."]),
+
+      Q("C", ["Health Check", "Pagsusuri ng Kalusugan"],
+        ["You feel sick with a contagious illness before your scheduled duty. What is the proper checkpoint?",
+         "May nakahahawang sakit ka bago ang iskedyul mo. Ano ang tamang checkpoint?"],
+        [["Inform the Head Usher early, rest, and let a substitute cover your post",
+          "Ipaalam nang maaga sa Head Usher, magpahinga, at hayaang may pumalit sa puwesto mo"],
+         ["Serve anyway and shake hands with everyone",
+          "Maglingkod pa rin at makipagkamay sa lahat"],
+         ["Skip the duty without telling anyone",
+          "Lumiban nang hindi nagsasabi kaninuman"],
+         ["Force others to pray for you at the door",
+          "Pilitin ang iba na ipanalangin ka sa pinto"]],
+        ["Caring for your own health also protects the people you serve.",
+         "Ang pag-aalaga sa sariling kalusugan ay nagpoprotekta rin sa mga pinaglilingkuran."]),
+
+      Q("C", ["Hygiene Check", "Pagsusuri ng Kalinisan"],
+        ["Which hygiene checkpoint should every usher follow?",
+         "Aling checkpoint sa kalinisan ang dapat sundin ng bawat usher?"],
+        [["Wash or sanitize hands regularly, especially before handling offerings or greeting guests",
+          "Maghugas o mag-sanitize ng kamay nang regular, lalo na bago humawak ng handog o bumati ng bisita"],
+         ["Never wash your hands",
+          "Huwag maghugas ng kamay"],
+         ["Eat before greeting without cleaning",
+          "Kumain bago bumati nang hindi naglilinis"],
+         ["Use perfume to cover everything",
+          "Gumamit ng pabango para takpan ang lahat"]],
+        ["Clean hands show respect for people and for God's house.",
+         "Ang malinis na kamay ay tanda ng paggalang sa tao at sa bahay ng Diyos."]),
+
+      Q("C", ["Receiving Correction", "Pagtanggap ng Pagwawasto"],
+        ["A leader gently corrects a mistake you made. What is the best response?",
+         "Mahinahong itinama ng isang lider ang pagkakamali mo. Ano ang pinakamainam na tugon?"],
+        [["Listen humbly, thank them, and make the needed change",
+          "Makinig nang mapagpakumbaba, magpasalamat, at gawin ang kinakailangang pagbabago"],
+         ["Argue and defend yourself at length",
+          "Makipagtalo at ipagtanggol ang sarili nang mahaba"],
+         ["Quit the ministry immediately",
+          "Magbitiw agad sa ministeryo"],
+         ["Complain about the leader to others",
+          "Magreklamo tungkol sa lider sa iba"]],
+        ["\"Whoever heeds correction gains understanding\" (Proverbs 15:32).",
+         "\"Ang nakikinig sa pagsaway ay nagkakamit ng unawa\" (Kawikaan 15:32)."]),
+
+      Q("C", ["Training & Growth", "Pagsasanay at Paglago"],
+        ["What is the checkpoint for growing as an usher?",
+         "Ano ang checkpoint para sa paglago bilang usher?"],
+        [["Attend regular trainings and discussions, and practice what you learn",
+          "Dumalo sa regular na pagsasanay at talakayan, at isabuhay ang natutunan"],
+         ["Skip all trainings because you already know everything",
+          "Lumiban sa lahat ng pagsasanay dahil alam mo na ang lahat"],
+         ["Wait for someone to force you to learn",
+          "Maghintay na may magpilit sa iyong matuto"],
+         ["Copy others without understanding",
+          "Gayahin ang iba nang hindi nauunawaan"]],
+        ["Continuous learning keeps service excellent and safe.",
+         "Ang tuloy-tuloy na pagkatuto ay nagpapanatili ng kahusayan at kaligtasan ng paglilingkod."]),
+
+      Q("C", ["Shift Handover", "Pagpapasa ng Puwesto"],
+        ["What is the checkpoint when one service team hands over to the next?",
+         "Ano ang checkpoint kapag ipinapasa ng isang pangkat ang puwesto sa susunod?"],
+        [["Share updates about issues, supplies, and special needs so the next team is prepared",
+          "Magbahagi ng update tungkol sa isyu, suplay, at espesyal na pangangailangan upang handa ang susunod na pangkat"],
+         ["Leave without telling anyone",
+          "Umalis nang walang sinasabi"],
+         ["Remove all supplies",
+          "Alisin ang lahat ng suplay"],
+         ["Blame the next team",
+          "Sisihin ang susunod na pangkat"]],
+        ["Good communication keeps service smooth across multiple services.",
+         "Pinananatiling maayos ng mabuting komunikasyon ang serbisyo sa magkakasunod na pagtitipon."]),
+
+      Q("C", ["Safe Capacity", "Ligtas na Kapasidad"],
+        ["What is the capacity checkpoint during a crowded service?",
+         "Ano ang checkpoint sa kapasidad sa isang siksik na serbisyo?"],
+        [["Keep the number of people within the safe limit and keep aisles and exits unobstructed",
+          "Panatilihin ang bilang ng tao sa ligtas na limitasyon at hindi nakaharang ang pasilyo at labasan"],
+         ["Let people fill every open space, including exits",
+          "Hayaang mapuno ang bawat espasyo, kasama ang labasan"],
+         ["Ignore the number so you do not stress",
+          "Huwag pansinin ang bilang para hindi ma-stress"],
+         ["Add more chairs in the aisles",
+          "Magdagdag ng upuan sa mga pasilyo"]],
+        ["Safety limits protect everyone, especially in an emergency.",
+         "Pinoprotektahan ng ligtas na limitasyon ang lahat, lalo na sa emerhensiya."]),
+
+      Q("C", ["Self-Evaluation", "Pagsusuri sa Sarili"],
+        ["Which self-evaluation question helps an usher grow?",
+         "Aling tanong sa pagsusuri ng sarili ang nakatutulong sa paglago ng usher?"],
+        [["\"Did I serve with love, alertness, and humility, and what can I improve?\"",
+          "\"Naglingkod ba ako nang may pag-ibig, pagkaalisto, at pagpapakumbaba, at ano ang maaari kong pagbutihin?\""],
+         ["\"Who noticed me today?\"",
+          "\"Sino ang nakapansin sa akin ngayon?\""],
+         ["\"Who made mistakes so I can blame them?\"",
+          "\"Sino ang nagkamali para masisi ko?\""],
+         ["\"How little can I do next time?\"",
+          "\"Gaano kaliit ang magagawa ko sa susunod?\""]],
+        ["Honest self-reflection leads to a deeper and more effective service.",
+         "Ang tapat na pagninilay sa sarili ay nagdudulot ng mas malalim at mas epektibong paglilingkod."]),
+
+      Q("C", ["Visitor Follow-up", "Pag-follow up sa Bisita"],
+        ["What is the checkpoint for visitor connection cards?",
+         "Ano ang checkpoint para sa connection card ng mga bisita?"],
+        [["Collect them and hand them to the follow-up team so visitors are contacted and cared for",
+          "Kolektahin at ibigay sa follow-up team upang makontak at maalagaan ang mga bisita"],
+         ["Throw them away after service",
+          "Itapon pagkatapos ng serbisyo"],
+         ["Keep them for personal use",
+          "Itago para sa personal na gamit"],
+         ["Post the names publicly",
+          "Ipaskil ang mga pangalan sa publiko"]],
+        ["Follow-up turns a first visit into belonging.",
+         "Ang follow-up ay nagpapalit ng unang pagbisita tungo sa pagkakaroon ng pamilya."]),
+
+      Q("C", ["Accessibility Paths", "Mga Daanang Madaling Marating"],
+        ["What is the accessibility checkpoint before guests arrive?",
+         "Ano ang checkpoint sa akses bago dumating ang mga bisita?"],
+        [["Make sure ramps, wheelchair spaces, and pathways are clear and usable",
+          "Tiyaking bukas at magagamit ang rampa, espasyo para sa wheelchair, at mga daanan"],
+         ["Place boxes on the ramp to store them",
+          "Maglagay ng kahon sa rampa para itago"],
+         ["Block wheelchair spaces with extra chairs",
+          "Harangan ng dagdag na upuan ang espasyo para sa wheelchair"],
+         ["Lock the accessible entrance",
+          "Ikandado ang pasukang madaling marating"]],
+        ["Clear, accessible paths make every person welcome.",
+         "Ang bukas at madaling daanan ay nagpaparamdam na tanggap ang bawat tao."]),
+
+      Q("C", ["Closing Prayer & Thanks", "Pangwakas na Panalangin at Pasasalamat"],
+        ["How should the ushering team end the service day?",
+         "Paano dapat tapusin ng pangkat ng mga usher ang araw ng serbisyo?"],
+        [["Gather for a short prayer of thanks, encourage one another, and note areas to improve",
+          "Magtipon para sa maikling panalangin ng pasasalamat, magpalakasan ng loob, at itala ang dapat pagbutihin"],
+         ["Leave quickly without a word",
+          "Umalis agad nang walang salita"],
+         ["Criticize each other harshly",
+          "Magpuna sa isa't isa nang masakit"],
+         ["Count only the mistakes",
+          "Bilangin lamang ang mga pagkakamali"]],
+        ["Thanksgiving and encouragement keep the team united and joyful.",
+         "Ang pasasalamat at paghihikayat ay nagpapanatili ng pagkakaisa at galak ng pangkat."])
+    );
+
+
+
+    /* ==========================================================
+       STATE
+       ========================================================== */
+    const PASSING_PERCENTAGE = 70;
+    const MIXED_PER_SECTION = 4; // 4 x 3 sections = 12 questions in the mixed exam
+
+    const STATE = {
+      candidateName: "",
+      examMode: "mixed", // "mixed" | "A" | "B" | "C"
+      currentQuestions: [],
+      userAnswers: {},
+      currentQuestionIndex: 0,
+      score: 0,
+      percentage: 0,
+      hasPassed: false,
+      sectionScores: { A: { c: 0, t: 0 }, B: { c: 0, t: 0 }, C: { c: 0, t: 0 } },
+      refId: "",
+      dateStr: ""
+    };
+
+    /* ==========================================================
+       UTILITIES
+       ========================================================== */
+    function esc(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    /* Bilingual block: English line + Tagalog line */
+    function bi(pair) {
+      return `<span class="en">${esc(pair[0])}</span><span class="tl">${esc(pair[1])}</span>`;
+    }
+
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function generateRefId() {
+      const buf = new Uint32Array(1);
+      window.crypto.getRandomValues(buf);
+      return "SLM-ABC-" + String(100000 + (buf[0] % 900000));
+    }
+
+    function passMark(total) {
+      return Math.ceil((PASSING_PERCENTAGE / 100) * total);
+    }
+
+    /* ==========================================================
+       EXAM GENERATION
+       Mixed = 4 questions from each of A, B, C, interleaved
+       ========================================================== */
+    function generateExamSet(mode) {
+      let picked = [];
+
+      if (mode === "A" || mode === "B" || mode === "C") {
+        picked = shuffleArray(QUESTION_BANK.filter(q => q.s === mode));
+      } else {
+        const a = shuffleArray(QUESTION_BANK.filter(q => q.s === "A")).slice(0, MIXED_PER_SECTION);
+        const b = shuffleArray(QUESTION_BANK.filter(q => q.s === "B")).slice(0, MIXED_PER_SECTION);
+        const c = shuffleArray(QUESTION_BANK.filter(q => q.s === "C")).slice(0, MIXED_PER_SECTION);
+        for (let i = 0; i < MIXED_PER_SECTION; i++) {
+          picked.push(a[i], b[i], c[i]);
+        }
+      }
+
+      return picked.map(q => {
+        const opts = shuffleArray(q.o.map((opt, i) => ({ opt, correct: i === 0 })));
+        return {
+          section: q.s,
+          topic: q.c,
+          question: q.q,
+          options: opts.map(o => o.opt),
+          correctIndex: opts.findIndex(o => o.correct),
+          explanation: q.e
+        };
+      });
+    }
+
+    /* ==========================================================
+       RENDERING
+       ========================================================== */
+    const appContent = document.getElementById("appContent");
+
+    function sectionChip(sec) {
+      const s = SECTIONS[sec];
+      return `<span class="section-chip sec-${sec}"><b>${s.letter}</b> ${esc(s.en)} &middot; ${esc(s.tl)}</span>`;
+    }
+
+    /* SCREEN 1: WELCOME / REGISTRATION */
+    function renderWelcomeScreen() {
+      const pillars = ["A", "B", "C"].map(k => {
+        const s = SECTIONS[k];
+        return `
+          <div class="pillar-card sec-${k}">
+            <div class="pillar-letter">${s.letter}</div>
+            <div class="pillar-name">${esc(s.en)} <span class="tl" style="display:inline;">/ ${esc(s.tl)}</span></div>
+            <div class="pillar-desc">${esc(s.descEn)}<span class="tl">${esc(s.descTl)}</span></div>
+          </div>`;
+      }).join("");
+
+      const total = MIXED_PER_SECTION * 3;
+
+      appContent.innerHTML = `
+        <div class="card card-accent" style="text-align: center; max-width: 700px; margin: 0 auto;">
+          <div class="badge" style="margin-bottom: 14px;">In-House Go Group</div>
+          <h2 style="font-size: 1.5rem; margin-bottom: 6px;">ABC Usher Certification</h2>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            Official knowledge assessment for SerLord Ministry ushers of Cathedral of Praise Church.
+            <span class="tl">Opisyal na pagsusulit ng kaalaman para sa mga usher ng SerLord Ministry ng Cathedral of Praise Church.</span>
+          </p>
+
+          <div class="ministry-pillars">${pillars}</div>
+
+          <div class="instructions-box">
+            <h4>Exam Guidelines &middot; Mga Panuto</h4>
+            <ul class="instruction-list">
+              <li>The mixed exam has <strong>${total} questions</strong>: ${MIXED_PER_SECTION} each from <strong>A (Application)</strong>, <strong>B (Basics)</strong>, and <strong>C (Checkpoint)</strong>.
+                <span class="tl">May ${total} tanong ang halo-halong pagsusulit: tig-${MIXED_PER_SECTION} mula sa A, B, at C.</span></li>
+              <li>Every question and answer has a Tagalog/Filipino translation.
+                <span class="tl">Bawat tanong at sagot ay may salin sa Tagalog/Filipino.</span></li>
+              <li>You need at least <strong>${PASSING_PERCENTAGE}%</strong> (${passMark(total)} out of ${total}) to receive the certificate.
+                <span class="tl">Kailangan ng hindi bababa sa ${PASSING_PERCENTAGE}% (${passMark(total)} sa ${total}) upang makatanggap ng sertipiko.</span></li>
+            </ul>
+          </div>
+
+          <form id="regForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="candidateName">Full Name &middot; Buong Pangalan</label>
+              <input type="text" id="candidateName" class="form-control" maxlength="80"
+                placeholder="e.g., Maria Santos / Juan dela Cruz" required autocomplete="name"
+                value="${esc(STATE.candidateName)}" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="examSetSelect">Exam Set &middot; Uri ng Pagsusulit</label>
+              <select id="examSetSelect" class="form-control">
+                <option value="mixed">Mixed A + B + C (Recommended / Inirerekomenda)</option>
+                <option value="A">Focus on A: Application (Pagsasabuhay)</option>
+                <option value="B">Focus on B: Basics (Saligan)</option>
+                <option value="C">Focus on C: Checkpoint (Pagsusuri)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Begin Certification Exam &middot; Simulan ang Pagsusulit
+            </button>
+          </form>
+        </div>
+      `;
+    }
+
+    function handleStartExam(e) {
+      e.preventDefault();
+      const nameVal = document.getElementById("candidateName").value.trim();
+      if (!nameVal) {
+        document.getElementById("candidateName").focus();
+        alert("Please enter your full name. / Pakilagay ang iyong buong pangalan.");
+        return;
+      }
+      STATE.candidateName = nameVal.slice(0, 80);
+      STATE.examMode = document.getElementById("examSetSelect").value;
+      startNewAttempt();
+    }
+
+    function startNewAttempt() {
+      STATE.currentQuestions = generateExamSet(STATE.examMode);
+      STATE.userAnswers = {};
+      STATE.currentQuestionIndex = 0;
+      renderExamScreen();
+    }
+
+    /* SCREEN 2: EXAM */
+    function renderExamScreen() {
+      const totalQ = STATE.currentQuestions.length;
+      const answeredCount = Object.keys(STATE.userAnswers).length;
+      const progressPct = Math.round((answeredCount / totalQ) * 100);
+      const idx = STATE.currentQuestionIndex;
+      const q = STATE.currentQuestions[idx];
+      const selectedOpt = STATE.userAnswers[idx];
+
+      const navDots = STATE.currentQuestions.map((item, i) => `
+        <button type="button"
+          class="nav-dot sec-${item.section} ${STATE.userAnswers[i] !== undefined ? "answered" : ""} ${i === idx ? "current" : ""}"
+          data-action="jump" data-index="${i}" title="Question ${i + 1} (${SECTIONS[item.section].en})"
+          aria-label="Question ${i + 1}">${i + 1}</button>`).join("");
+
+      const optionsHtml = q.options.map((opt, i) => `
+        <button type="button" class="option-item ${selectedOpt === i ? "selected" : ""}"
+          data-action="select" data-index="${i}" aria-pressed="${selectedOpt === i}">
+          <span class="option-radio"></span>
+          <span class="option-text">${bi(opt)}</span>
+        </button>`).join("");
+
+      const isFirst = idx === 0;
+      const isLast = idx === totalQ - 1;
+
+      appContent.innerHTML = `
+        <div class="exam-header">
+          <div class="candidate-chip">
+            <div class="candidate-avatar">${esc(STATE.candidateName.charAt(0).toUpperCase())}</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.95rem;">${esc(STATE.candidateName)}</div>
+              <div style="font-size: 0.75rem; color: var(--blue);">ABC Usher Candidate</div>
+            </div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label">Progress: <span>${answeredCount}/${totalQ} Answered</span></div>
+            <div class="progress-bar-container"><div class="progress-bar-fill" style="width: ${progressPct}%;"></div></div>
+          </div>
+        </div>
+
+        <div class="question-navigator">${navDots}</div>
+
+        <div class="question-card sec-${q.section}">
+          <div class="question-meta">
+            ${sectionChip(q.section)}
+            <span class="question-number">Question ${idx + 1} of ${totalQ} &middot; Tanong ${idx + 1} sa ${totalQ}</span>
+          </div>
+          <div class="question-topic">${esc(q.topic[0])} <span style="color: var(--dim);">/ ${esc(q.topic[1])}</span></div>
+          <h3 class="question-title">${bi(q.question)}</h3>
+          <div class="options-grid">${optionsHtml}</div>
+        </div>
+
+        <div class="exam-actions">
+          <button type="button" class="btn btn-outline" data-action="prev" ${isFirst ? "disabled" : ""}>
+            &larr; Previous &middot; Nakaraan
+          </button>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            ${!isLast ? `<button type="button" class="btn btn-outline" data-action="next">Next &middot; Susunod &rarr;</button>` : ""}
+            <button type="button" class="btn btn-primary" data-action="submit">Submit &middot; Isumite</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectAnswer(optionIndex) {
+      STATE.userAnswers[STATE.currentQuestionIndex] = optionIndex;
+      renderExamScreen();
+    }
+    function jumpToQuestion(i) { STATE.currentQuestionIndex = i; renderExamScreen(); }
+    function nextQuestion() {
+      if (STATE.currentQuestionIndex < STATE.currentQuestions.length - 1) { STATE.currentQuestionIndex++; renderExamScreen(); }
+    }
+    function prevQuestion() {
+      if (STATE.currentQuestionIndex > 0) { STATE.currentQuestionIndex--; renderExamScreen(); }
+    }
+
+    /* Confirmation modal */
+    function promptSubmitModal() {
+      const total = STATE.currentQuestions.length;
+      const remaining = total - Object.keys(STATE.userAnswers).length;
+      const msg = document.getElementById("modalMessage");
+
+      if (remaining > 0) {
+        msg.innerHTML = `
+          You have <strong style="color: var(--red);">${remaining} unanswered question${remaining > 1 ? "s" : ""}</strong>.
+          Unanswered items count as incorrect.
+          <span class="tl">May ${remaining} tanong na hindi pa nasasagot. Ituturing itong mali.</span>`;
+      } else {
+        msg.innerHTML = `
+          You have answered all ${total} questions. Ready to see your score?
+          <span class="tl">Nasagot mo na ang lahat ng ${total} tanong. Handa ka na bang makita ang iyong marka?</span>`;
+      }
+      document.getElementById("confirmModal").classList.add("open");
+    }
+
+    function closeModal() { document.getElementById("confirmModal").classList.remove("open"); }
+
+    document.getElementById("cancelModalBtn").addEventListener("click", closeModal);
+    document.getElementById("confirmSubmitBtn").addEventListener("click", () => {
+      closeModal();
+      calculateAndShowResults();
+    });
+
+    /* SCREEN 3: RESULTS */
+    function calculateAndShowResults() {
+      const total = STATE.currentQuestions.length;
+      const sections = { A: { c: 0, t: 0 }, B: { c: 0, t: 0 }, C: { c: 0, t: 0 } };
+      let correct = 0;
+
+      STATE.currentQuestions.forEach((q, i) => {
+        sections[q.section].t++;
+        if (STATE.userAnswers[i] === q.correctIndex) {
+          correct++;
+          sections[q.section].c++;
+        }
+      });
+
+      STATE.score = correct;
+      STATE.percentage = Math.round((correct / total) * 100);
+      STATE.hasPassed = STATE.percentage >= PASSING_PERCENTAGE;
+      STATE.sectionScores = sections;
+      STATE.refId = generateRefId();
+      STATE.dateStr = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+      renderResultsScreen();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (STATE.hasPassed) launchConfetti();
+    }
+
+    function sectionScoresHtml() {
+      return `<div class="section-scores">` + ["A", "B", "C"].map(k => {
+        const s = STATE.sectionScores[k];
+        if (s.t === 0) return "";
+        return `
+          <div class="section-score sec-${k}">
+            <div class="ss-name">${k} &middot; ${esc(SECTIONS[k].en)}</div>
+            <div class="ss-val">${s.c}/${s.t}</div>
+          </div>`;
+      }).join("") + `</div>`;
+    }
+
+    function certificateHtml() {
+      const abcChips = ["A", "B", "C"].map(k =>
+        `<span class="cert-abc-item sec-${k}">${k} &middot; ${esc(SECTIONS[k].en)}</span>`
+      ).join("");
+
+      return `
+        <div class="certificate-wrapper" id="printableCertificate">
+          <div class="certificate-inner">
+            <div class="cert-logos">
+              <img class="cert-logo-cop" src="cop_logo.jpg" alt="Cathedral of Praise logo" />
+              <img class="cert-logo-serlord" src="serlord_logo.jpg" alt="SerLord Ministry logo" />
+              <img class="cert-logo-hupomone" src="hupomone_logo.jpg" alt="Hupomone logo" />
+            </div>
+            <div class="cert-heading">SerLord Ministry &bull; Cathedral of Praise</div>
+            <h3 class="cert-title">Certificate of Completion</h3>
+            <div class="cert-rule"></div>
+            <div class="cert-presented">This certifies that</div>
+            <div class="cert-name">${esc(STATE.candidateName)}</div>
+            <p class="cert-statement">
+              has successfully passed the <strong>SerLord Ministry ABC Usher Certification Exam</strong> with a score of <strong>${STATE.percentage}%</strong>, as a faithful servant in the house of God.
+            </p>
+            <div class="cert-abc">${abcChips}</div>
+
+            <div class="cert-footer-grid">
+              <div class="cert-detail"><span>Date</span>${esc(STATE.dateStr)}</div>
+              <div class="cert-detail"><span>Reference</span>${esc(STATE.refId)}</div>
+              <div class="cert-detail"><span>Status</span><strong class="cert-status">CERTIFIED USHER</strong></div>
+            </div>
+
+            <div class="cert-signatures">
+              <div class="cert-sign">Head Usher</div>
+              <div class="cert-sign">Pastor In Charge / Ministry Pastor</div>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function renderResultsScreen() {
+      const total = STATE.currentQuestions.length;
+
+      const reviewHtml = STATE.currentQuestions.map((q, i) => {
+        const userIdx = STATE.userAnswers[i];
+        const isCorrect = userIdx === q.correctIndex;
+        const userAns = userIdx !== undefined ? bi(q.options[userIdx]) : `<span class="en">(Not answered)</span><span class="tl">(Walang sagot)</span>`;
+        const correctAns = bi(q.options[q.correctIndex]);
+
+        return `
+          <div class="review-item ${isCorrect ? "was-correct" : "was-wrong"}">
+            <div class="review-q-header">
+              <span><span class="mini-chip sec-${q.section}">${q.section} &middot; ${esc(SECTIONS[q.section].en)}</span>${i + 1}. ${bi(q.question)}</span>
+              <span class="${isCorrect ? "tag-ok" : "tag-bad"}">${isCorrect ? "&#10003; Correct" : "&#10007; Review"}</span>
+            </div>
+            <div class="review-answers">
+              <div>Your answer &middot; Sagot mo: <span class="${isCorrect ? "tag-ok" : "tag-bad"}">${userAns}</span></div>
+              ${!isCorrect ? `<div>Correct answer &middot; Tamang sagot: <span class="tag-ok">${correctAns}</span></div>` : ""}
+            </div>
+            <div class="review-explanation"><strong>Ministry Principle &middot; Prinsipyo:</strong> ${bi(q.explanation)}</div>
+          </div>`;
+      }).join("");
+
+      const actions = (primary, showRetake) => `
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 24px 0 8px;">
+          ${primary}
+          ${showRetake ? `<button type="button" class="btn btn-outline" data-action="retake">Take Another Set &middot; Kumuha Muli</button>` : ""}
+          <button type="button" class="btn btn-outline" data-action="home">Back to Start &middot; Bumalik</button>
+        </div>`;
+
+      if (STATE.hasPassed) {
+        appContent.innerHTML = `
+          <div class="result-hero">
+            <div class="result-badge pass">Exam Passed &middot; Pumasa</div>
+            <div class="score-circle passed">
+              <div class="score-number">${STATE.score}</div>
+              <div class="score-total">out of ${total} (${STATE.percentage}%)</div>
+            </div>
+            <h2 class="result-message-title">Congratulations, ${esc(STATE.candidateName)}!</h2>
+            <p class="result-message-body">
+              Praise God! You have shown a solid grasp of Application, Basics, and Checkpoint. You are now recognized as a <strong>Certified ABC Usher</strong>.
+              <span class="tl">Purihin ang Diyos! Naipakita mo ang mahusay na pag-unawa sa Application, Basics, at Checkpoint. Isa ka na ngayong <strong>Sertipikadong ABC Usher</strong>.</span>
+            </p>
+            ${sectionScoresHtml()}
+            ${certificateHtml()}
+            ${actions(`<button type="button" class="btn btn-primary" data-action="print">Print / Save Certificate (PDF)</button>`, true)}
+            <div class="review-section">
+              <h3 class="review-title">Exam Review &amp; Principles &middot; Pagsusuri ng Pagsusulit</h3>
+              ${reviewHtml}
+            </div>
+          </div>`;
+      } else {
+        appContent.innerHTML = `
+          <div class="result-hero">
+            <div class="result-badge fail">Keep Growing &middot; Magpatuloy sa Paglago</div>
+            <div class="score-circle failed">
+              <div class="score-number">${STATE.score}</div>
+              <div class="score-total">out of ${total} (${STATE.percentage}%)</div>
+            </div>
+            <h2 class="result-message-title">Keep Growing in Grace, ${esc(STATE.candidateName)}!</h2>
+            <p class="result-message-body">
+              Thank you for your willing heart to serve. You scored <strong>${STATE.score}/${total} (${STATE.percentage}%)</strong>; the passing mark is <strong>${PASSING_PERCENTAGE}% (${passMark(total)}/${total})</strong>. Study the answers below, then try again.
+              <span class="tl">Salamat sa iyong pusong handang maglingkod. Nakakuha ka ng <strong>${STATE.score}/${total} (${STATE.percentage}%)</strong>; ang pasadong marka ay <strong>${PASSING_PERCENTAGE}% (${passMark(total)}/${total})</strong>. Pag-aralan ang mga sagot sa ibaba at subukan muli.</span>
+            </p>
+            ${sectionScoresHtml()}
+            ${actions(`<button type="button" class="btn btn-primary" data-action="retake">Try Again &middot; Subukan Muli</button>`, false)}
+            <div class="review-section">
+              <h3 class="review-title">Detailed Review &middot; Detalyadong Pagsusuri</h3>
+              ${reviewHtml}
+            </div>
+          </div>`;
+      }
+    }
+
+    /* ==========================================================
+       EVENT DELEGATION (no inline handlers)
+       ========================================================== */
+    appContent.addEventListener("click", (e) => {
+      const target = e.target.closest("[data-action]");
+      if (!target) return;
+      const idx = Number(target.dataset.index);
+
+      switch (target.dataset.action) {
+        case "select": selectAnswer(idx); break;
+        case "jump":   jumpToQuestion(idx); break;
+        case "next":   nextQuestion(); break;
+        case "prev":   prevQuestion(); break;
+        case "submit": promptSubmitModal(); break;
+        case "print":  window.print(); break;
+        case "retake": startNewAttempt(); break;
+        case "home":   renderWelcomeScreen(); window.scrollTo({ top: 0 }); break;
+      }
+    });
+
+    appContent.addEventListener("submit", (e) => {
+      if (e.target && e.target.id === "regForm") handleStartExam(e);
+    });
+
+    /* ==========================================================
+       CONFETTI (pure canvas) in the logo colors
+       ========================================================== */
+    function launchConfetti() {
+      const canvas = document.getElementById("confettiCanvas");
+      if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const colors = ["#1f4ba5", "#14285f", "#b3262f", "#c9a227", "#2e9e44", "#ffffff"];
+      const particles = Array.from({ length: 100 }, () => ({
+        x: canvas.width / 2,
+        y: canvas.height * 0.35,
+        r: Math.random() * 6 + 3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 14,
+        vy: (Math.random() - 0.7) * 14,
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 10
+      }));
+
+      let frame = 0;
+      (function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.18;
+          p.rotation += p.rotationSpeed;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.r / 2, -p.r / 2, p.r, p.r * 1.5);
+          ctx.restore();
+        });
+        frame++;
+        if (frame < 160) {
+          requestAnimationFrame(render);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      })();
+    }
+
+    window.addEventListener("resize", () => {
+      const canvas = document.getElementById("confettiCanvas");
+      if (canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    });
+
+    document.addEventListener("DOMContentLoaded", renderWelcomeScreen);
+  </script>
+</body>
+</html>
